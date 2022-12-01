@@ -10,7 +10,7 @@ function App() {
           </div>
           <img
             className="pkmnEnemy"
-            src="https://play.pokemonshowdown.com/sprites/ani-shiny/alakazam-mega.gif"
+            src="https://play.pokemonshowdown.com/sprites/ani-shiny/alakazam-mega.gif" /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
           />
           <img
             className="pkmnAlly"

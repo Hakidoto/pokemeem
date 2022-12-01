@@ -21,7 +21,7 @@
 .left {
   min-width: 500px;
 
-  background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-desert.jpg");
+  background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-desert.jpg"); /* Podemos extraer bgs aleatorios reemplazando la ultima parte del vinculo*/
   height: 50vh;
 }
 
