@@ -79,6 +79,7 @@ return (
               </div>
               <div className="playgroundFooter">
                 <p className="footerP">Que deberia hacer?</p>
+                {pokemon.map(({ moves }) => (
                 <div className="botones">
                   <div>
                     <button
@@ -88,7 +89,7 @@ return (
                       data-placement="top"*/
                       title="Boton designado para elegir un movimiento"
                     >
-                      PokeHabilidad1
+                      {moves[0].replace("-", " ")}
                     </button>
                     <button
                       type="button"
@@ -97,7 +98,7 @@ return (
                       data-placement="top"*/
                       title="Boton designado para elegir un item"
                     >
-                      PokeHabilidad2
+                      {moves[1].replace("-", " ")}
                     </button>
                   </div>
                   <div>
@@ -108,7 +109,7 @@ return (
                       data-placement="top"*/
                       title="Boton designado para elegir un movimiento"
                     >
-                      PokeHabilidad3
+                      {moves[2].replace("-", " ")}
                     </button>
                     <button
                       type="button"
@@ -117,11 +118,12 @@ return (
                       data-placement="top"*/
                       title="Boton designado para elegir un item"
                     >
-                      PokeHabilidad4
+                      {moves[3].replace("-", " ")}
                     </button>
                   </div>
                   
                 </div>
+                ))}
               </div>
             </div>
                 
@@ -136,8 +138,9 @@ return (
                       <p>Despliega el historial de acciones realizadas.</p>
                     </div>
                     <div className="contentLogContent">
+                    {pokemon.map(({ name, moves }) => (
                       <div className="overflow-auto logList">
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
+                        <p>{name} ataco a pokependej02 con {moves[0].replace("-", " ")} </p>
                         <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
                         <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
                         <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
@@ -150,6 +153,7 @@ return (
                         <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
                         <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
                       </div>
+                                       ))}
                     </div>
                   </div>
                 </div>
