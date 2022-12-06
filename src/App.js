@@ -1,7 +1,42 @@
 import "./styles.css";
+import React, { useState, useEffect } from "react";
+import { getPokemonApi } from "./Helpers/getPokemonApi";
 
 function App() {
-  return (
+const [pokemon, setPokemon] = useState([]);
+const [pokemonEnemy, setPokemonEnemy] = useState([]);
+
+const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
+  const dataAlly = await getPokemonApi(numPokemonAlly);
+  const dataEnemy = await getPokemonApi(numPokemonEnemy);
+  console.log(dataAlly);
+  console.log(dataEnemy);
+  setPokemon([dataAlly]);
+  setPokemonEnemy([dataEnemy]);
+};
+
+console.log(pokemon.name);
+let arrIdPokemon = [];
+for (let i = 1; i <= 649; i++) {
+  arrIdPokemon.push(i);
+}
+
+
+const valorRandom = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
+
+let randomValue1 = valorRandom(arrIdPokemon);
+let randomValue2 = valorRandom(arrIdPokemon);
+
+
+useEffect(() => {
+  getPokemon(randomValue1, randomValue2);
+}, []);
+
+
+
+return (
       <div className="bg-dark text-light main">
         <div className="playground">
           <div className="titilePlayground">
@@ -9,18 +44,22 @@ function App() {
           </div>
           <div className="charas">
             <div className="enemyContainer">
+            {pokemonEnemy.map(({ name, id }) => (
               <img
                 className="enemy"
-                src="https://play.pokemonshowdown.com/sprites/ani-shiny/alakazam-mega.gif" /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
+                src={`https://play.pokemonshowdown.com/sprites/ani-shiny/${name}.gif`} /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
                 alt="pkmnEnemy"
               />
+            ))}
             </div>
             <div className="allyContainer">
-              <img
-                className="ally"
-                src="https://play.pokemonshowdown.com/sprites/ani-back-shiny/kecleon.gif"
-                alt="pkmAlly"
-              />
+            {pokemon.map(({ name }) => (
+            <img
+              className="ally"
+              src={`https://play.pokemonshowdown.com/sprites/ani-back-shiny/${name}.gif`}
+              alt="pkmAlly"
+            ></img>
+            ))}
             </div>
           </div>
           <div className="playgroundFooter">
