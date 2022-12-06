@@ -16,7 +16,7 @@ const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   //console.log(dataEnemy);
   setPokemon([dataAlly]);
   setPokemonEnemy([dataEnemy]);
-  setHpBarEnemy(dataEnemy.hp)
+  
   setHpEnemy(dataEnemy.hp)
   setHpMaxEnemy(dataEnemy.hp)
 };
@@ -25,8 +25,6 @@ let arrIdPokemon = [];
 for (let i = 1; i <= 649; i++) {
   arrIdPokemon.push(i);
 }
-
-
 const valorRandom = (arr) => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
@@ -40,7 +38,6 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  console.log(HpEnemy + " UseEffect")
   setHpBarEnemy((HpEnemy/hpMaxEnemy)*100)
 }, [HpEnemy,hpMaxEnemy]);
 
@@ -48,7 +45,7 @@ useEffect(() => {
 const processHealt = () => {
   setHpEnemy(HpEnemy - 10)
   
-  console.log(HpEnemy)/*VAlor fijo*/
+  console.log(HpEnemy)
 }
 
 
