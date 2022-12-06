@@ -12,9 +12,9 @@ body {
 .playground{
   width: 50%;
   border-radius: 5px;
-  height: 100vh;
+  height: 80vh;
   background-repeat: no-repeat;
-  background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-desert.jpg"); /* Podemos extraer bgs aleatorios reemplazando la ultima parte del vinculo*/
+  background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-city.jpg"); /* Podemos extraer bgs aleatorios reemplazando la ultima parte del vinculo*/
 }
 
 .titilePlayground{
@@ -28,6 +28,13 @@ body {
 
 .charas{
   height: 47%;
+}
+
+.lifeBar{
+  width: 50%;
+  text-align: center;
+  margin-left: 20%;
+  margin-bottom: 5%;
 }
 
 .allyContainer{
@@ -53,11 +60,12 @@ body {
 }
 
 .playgroundFooter{
-  height: 20%;
+  height: 23.5%;
   display: flex;
-  background-color: rgb(124, 81, 16);
+  background-color: hsla(0, 0%, 0%, 0.5);
   align-items: center;
   border-radius: 5px;
+  margin-top: 10%;
 }
 .footerP{
   text-align: center;
@@ -73,7 +81,7 @@ body {
 }
 
 .boton{
-  width: 100px;
+  width: 130px;
   height: 40px;
 }
 
@@ -102,7 +110,6 @@ body {
   width: 60%;
   font-size: 1.3vw;
   margin: 4% auto;
-  
 }
 
 .contentLogContent{
@@ -115,6 +122,13 @@ body {
 
 .logList{
   padding: 4%;
+  height: 98%;
+}
+
+.footer{
+  width: 100%;
+  height: 17.7vh;
+  background-color: rgb(109, 109, 109);
 }
 
 @media screen and (max-width: 768px) {
