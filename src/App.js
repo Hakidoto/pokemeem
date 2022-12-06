@@ -2,8 +2,7 @@ import "./styles.css";
 
 function App() {
   return (
-    
-      <div className="d-flex bg-dark text-light">
+      <div className="bg-dark text-light main">
         <div className="playground">
           <div className="titilePlayground">
             <p className="">Patio de juegos</p>
