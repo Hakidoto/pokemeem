@@ -1,63 +1,116 @@
-.pkmnEnemy {
-  display: block;
+
+body {
   position: absolute;
-  left: 32vh;
-  top: 8vh;
-  width: 113px;
-  height: 115px;
-  opacity: 1;
+  width: 100%;
+  background-color: #343a40;
 }
 
-.pkmnAlly {
-  position: absolute;
-  display: block;
-  left: 9vh;
-  top: 25vh;
-  width: 75px;
-  height: 97px;
-  opacity: 1;
-}
-
-.left {
-  min-width: 500px;
-
-  background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-desert.jpg"); /* Podemos extraer bgs aleatorios reemplazando la ultima parte del vinculo*/
-  height: 50vh;
-}
-
-.middle {
-  min-width: 500px;
-  background: #ff035b;
-  height: 50vh;
-}
-
-.right {
-  background: #ffb804;
+.playground{
+  width: 50%;
+  border-radius: 5px;
   height: 100vh;
-  max-width: 250px;
+  background-repeat: no-repeat;
+  background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-desert.jpg"); /* Podemos extraer bgs aleatorios reemplazando la ultima parte del vinculo*/
 }
 
-.core {
-  width: 200px;
-  background: #ffb804;
-  padding: 10px;
-  margin: 25px;
+.titilePlayground{
+  background-color: orange !important;
+  text-align: center;
+  width: 50%;
+  font-size: 2.3vw;
+  margin: 4% auto;
+  border-radius: 5px;
 }
 
-.battleLog {
-  width: 90%;
-  height: 70%;
-  background: #e9d297;
-  padding: 10px;
-  margin: 25px;
+.charas{
+  height: 47%;
 }
 
-.playerBox {
-  width: 90%;
-  position: relative;
+.allyContainer{
+  height: 50%;
+  width: 50%;
+  text-align: center;
+}
+
+.enemyContainer{
+  height: 50%;
+  width: 50%;
+  margin-left: 50%;
+  text-align: center;
+}
+
+.ally{
+  min-width: 120px;
+  min-height: 120px;
+}
+.enemy{
+  min-width: 80px;
+  min-height: 80px;
+}
+
+.playgroundFooter{
   height: 20%;
-  top: 50%;
-  background: #e9d297;
-  padding: 10px;
-  margin: 25px;
+  display: flex;
+  background-color: rgb(124, 81, 16);
+  align-items: center;
+  border-radius: 5px;
+}
+.footerP{
+  text-align: center;
+  width: 50%;
+  font-size: 2.5vw;;
+}
+.botones{
+  border-left: 1px solid rgb(255, 255, 255);;
+  width: 50%;
+  height: 100%;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.boton{
+  width: 100px;
+  height: 40px;
+}
+
+.logg{
+  width: 50%;
+}
+.titleLog{
+  background-color: orange !important;
+  border-radius: 5px;
+  text-align: center;
+  width: 50%;
+  font-size: 2.3vw;
+  margin: 4% auto;
+}
+.logContent{
+  width: 100%;
+  height: 66.8vh;
+  background-color: rgb(70, 59, 59);
+  border-radius: 5px;
+}
+.logContentTitle{
+  background-color: orange !important;
+  border-radius: 5px;
+  text-align: center;
+  width: 60%;
+  font-size: 1.3vw;
+  margin: 4% auto;
+}
+
+.contentLogContent{
+  height: 23vw;;
+  width: 85%;
+  background-color: rgb(68, 68, 68);
+  border-radius: 5px;
+  margin-left: 8%;
+}
+
+.logList{
+  padding: 4%;
+}
+
+@media screen and (min-width: 768px) {
+  /* reglas de estilo aquí */
 }
