@@ -2,55 +2,100 @@ import "./styles.css";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-3 left">
-          <div className="core text-center mx-auto">
-            <p>Main screen</p>
+    
+      <div className="d-flex bg-dark text-light">
+        <div className="playground">
+          <div className="titilePlayground">
+            <p className="">Patio de juegos</p>
           </div>
-          <img
-            className="pkmnEnemy"
-            src="https://play.pokemonshowdown.com/sprites/ani-shiny/alakazam-mega.gif" /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
-          />
-          <img
-            className="pkmnAlly"
-            src="https://play.pokemonshowdown.com/sprites/ani-back-shiny/kecleon.gif"
-          ></img>
-          <div className="playerBox text-start mx-auto">
-            <p>Que deberia hacer?</p>
-            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Boton designado para elegir un movimiento"
-              >
-                Fight
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Boton designado para elegir un item"
-              >
-                Bag
-              </button>
+          <div className="charas">
+            <div className="enemyContainer">
+              <img
+                className="enemy"
+                src="https://play.pokemonshowdown.com/sprites/ani-shiny/alakazam-mega.gif" /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
+                alt="pkmnEnemy"
+              />
+            </div>
+            <div className="allyContainer">
+              <img
+                className="ally"
+                src="https://play.pokemonshowdown.com/sprites/ani-back-shiny/kecleon.gif"
+                alt="pkmAlly"
+              />
+            </div>
+          </div>
+          <div className="playgroundFooter">
+            <p className="footerP">Que deberia hacer?</p>
+            <div className="botones">
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-primary m-1 boton"
+                  /*data-toggle="tooltip"
+                  data-placement="top"*/
+                  title="Boton designado para elegir un movimiento"
+                >
+                  Fight
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary m-1 boton"
+                  /*data-toggle="tooltip"
+                  data-placement="top"*/
+                  title="Boton designado para elegir un item"
+                >
+                  Bag
+                </button>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-primary m-1 boton"
+                  /*data-toggle="tooltip"
+                  data-placement="top"*/
+                  title="Boton designado para elegir un movimiento"
+                >
+                  Fight
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary m-1 boton"
+                  /*data-toggle="tooltip"
+                  data-placement="top"*/
+                  title="Boton designado para elegir un item"
+                >
+                  Bag
+                </button>
+              </div>
+              
             </div>
           </div>
         </div>
 
-        <div className="col-6 middle">
-          <div className="core text-center mx-auto">
-            <p>Battle log</p>
-          </div>
-          <div className="battleLog text-center mx-auto">
-            <p>Despliega el historial de acciones realizadas.</p>
+        <div className="logg">
+          <div>
+            <div className="titleLog">
+              <p className="">Battle log</p>
+            </div>
+            <div className="logContent">
+              <div>
+                <div className="logContentTitle">
+                  <p>Despliega el historial de acciones realizadas.</p>
+                </div>
+                <div className="contentLogContent">
+                  <div className="logList">
+                    <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
+                    <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
+                    <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
