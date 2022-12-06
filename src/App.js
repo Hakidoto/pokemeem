@@ -5,6 +5,7 @@ import { getPokemonApi } from "./Helpers/getPokemonApi";
 function App() {
 const [pokemon, setPokemon] = useState([]);
 const [pokemonEnemy, setPokemonEnemy] = useState([]);
+const [hpMax, setHPMax] = useState(0);
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   const dataAlly = await getPokemonApi(numPokemonAlly);
@@ -13,9 +14,10 @@ const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   console.log(dataEnemy);
   setPokemon([dataAlly]);
   setPokemonEnemy([dataEnemy]);
+  setHPMax(dataAlly.hp)
+  console.log(hpMax);
 };
 
-console.log(pokemon.name);
 let arrIdPokemon = [];
 for (let i = 1; i <= 649; i++) {
   arrIdPokemon.push(i);
@@ -47,31 +49,35 @@ return (
               <div className="charas">
                 <div className="enemyContainer">
                 {  
-                  pokemonEnemy.map(({ name, id }) => (
+                  pokemonEnemy.map(({ name, hp,id }) => (
                     <>
                     <div className="progress lifeBar">
-                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: "25%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: "100%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax={hp}></div>
                     </div>
                       <img
+                      key={id}
                       className="enemy"
                       src={`https://play.pokemonshowdown.com/sprites/ani-shiny/${name}.gif`} /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
                       alt="pkmnEnemy"
-                  />
+                    />
+                    <p>{hp}</p>
                     </>
                   
                 ))}
                 </div>
                 <div className="allyContainer">
-                {pokemon.map(({ name }) => (
+                {pokemon.map(({ name,hp,id }) => (
                   <>
                     <div className="progress lifeBar">
-                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: "75%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: (hp/hpMax*100)}} aria-valuemin={(hp*0)} aria-valuemax={hpMax}></div>
                     </div>
                     <img
+                    key={id} 
                     className="ally"
                     src={`https://play.pokemonshowdown.com/sprites/ani-back-shiny/${name}.gif`}
                     alt="pkmAlly"
                     />
+                    <p>{hp}</p>
                   </>
                 
                 ))}
@@ -159,8 +165,8 @@ return (
         </div>
         <div>
           <div className="footer">
-            <div class="spinner-border" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         </div>
