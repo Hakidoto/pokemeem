@@ -31,9 +31,9 @@ body {
 }
 
 .lifeBar{
-  width: 200px;
+  width: 50%;
   text-align: center;
-  margin-left: 24%;
+  margin-left: 27%;
   margin-bottom: 5%;
 }
 

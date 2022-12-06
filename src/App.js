@@ -5,16 +5,20 @@ import { getPokemonApi } from "./Helpers/getPokemonApi";
 function App() {
 const [pokemon, setPokemon] = useState([]);
 const [pokemonEnemy, setPokemonEnemy] = useState([]);
-const [hpEnemy, setHpEnemy] = useState(0);
+const [hpBarEnemy, setHpBarEnemy] = useState(0);
+const [HpEnemy, setHpEnemy] = useState(0)
+const [hpMaxEnemy, setHpMaxEnemy] = useState(0);
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   const dataAlly = await getPokemonApi(numPokemonAlly);
   const dataEnemy = await getPokemonApi(numPokemonEnemy);
-  console.log(dataAlly);
-  console.log(dataEnemy);
+  //console.log(dataAlly);
+  //console.log(dataEnemy);
   setPokemon([dataAlly]);
   setPokemonEnemy([dataEnemy]);
+  setHpBarEnemy(dataEnemy.hp)
   setHpEnemy(dataEnemy.hp)
+  setHpMaxEnemy(dataEnemy.hp)
 };
 
 let arrIdPokemon = [];
@@ -36,17 +40,15 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  
-  
-}, [hpEnemy]);
+  console.log(HpEnemy + " UseEffect")
+  setHpBarEnemy((HpEnemy/hpMaxEnemy)*100)
+}, [HpEnemy,hpMaxEnemy]);
 
 
 const processHealt = () => {
-  const hp = hpEnemy
-  console.log(hp + " 1")
-  setHpEnemy((hpEnemy/hp)*100)
-  console.log(hp + " 2")
-  setHpEnemy(hpEnemy - 10)
+  setHpEnemy(HpEnemy - 10)
+  
+  console.log(HpEnemy)/*VAlor fijo*/
 }
 
 
@@ -64,7 +66,7 @@ return (
                   pokemonEnemy.map(({ name, hp,id }) => (
                     <>
                     <div className="progress lifeBar">
-                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: `${hpEnemy}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: `${hpBarEnemy}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                       <img
                       key={id}
@@ -72,7 +74,7 @@ return (
                       src={`https://play.pokemonshowdown.com/sprites/ani-shiny/${name}.gif`} /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
                       alt="pkmnEnemy"
                     />
-                    <p>{hp}</p>
+                    <p>{HpEnemy}</p>
                     </>
                   
                 ))}
@@ -106,7 +108,7 @@ return (
                       /*data-toggle="tooltip"
                       data-placement="top"*/
                       title="Boton designado para elegir un movimiento"
-                      onClick={()=> processHealt(hpEnemy)}
+                      onClick={()=> processHealt()}
                     >
                       {moves[0].replace("-", " ")}
                     </button>
