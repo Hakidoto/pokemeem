@@ -5,7 +5,7 @@ import { getPokemonApi } from "./Helpers/getPokemonApi";
 function App() {
 const [pokemon, setPokemon] = useState([]);
 const [pokemonEnemy, setPokemonEnemy] = useState([]);
-const [hpMax, setHPMax] = useState(0);
+const [hpEnemy, setHpEnemy] = useState(0);
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   const dataAlly = await getPokemonApi(numPokemonAlly);
@@ -14,8 +14,7 @@ const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   console.log(dataEnemy);
   setPokemon([dataAlly]);
   setPokemonEnemy([dataEnemy]);
-  setHPMax(dataAlly.hp)
-  console.log(hpMax);
+  setHpEnemy(dataEnemy.hp)
 };
 
 let arrIdPokemon = [];
@@ -36,6 +35,19 @@ useEffect(() => {
   getPokemon(randomValue1, randomValue2);
 }, []);
 
+useEffect(() => {
+  
+  
+}, [hpEnemy]);
+
+
+const processHealt = () => {
+  const hp = hpEnemy
+  console.log(hp + " 1")
+  setHpEnemy((hpEnemy/hp)*100)
+  console.log(hp + " 2")
+  setHpEnemy(hpEnemy - 10)
+}
 
 
 return (
@@ -52,7 +64,7 @@ return (
                   pokemonEnemy.map(({ name, hp,id }) => (
                     <>
                     <div className="progress lifeBar">
-                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: "100%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax={hp}></div>
+                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: `${hpEnemy}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                       <img
                       key={id}
@@ -69,7 +81,7 @@ return (
                 {pokemon.map(({ name,hp,id }) => (
                   <>
                     <div className="progress lifeBar">
-                      <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: (hp/hpMax*100)}} aria-valuemin={(hp*0)} aria-valuemax={hpMax}></div>
+                    <div className="progress-bar bg-success" role="progressbar" aria-label="Basic example" style={{width: "100%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <img
                     key={id} 
@@ -94,6 +106,7 @@ return (
                       /*data-toggle="tooltip"
                       data-placement="top"*/
                       title="Boton designado para elegir un movimiento"
+                      onClick={()=> processHealt(hpEnemy)}
                     >
                       {moves[0].replace("-", " ")}
                     </button>
@@ -146,18 +159,18 @@ return (
                     <div className="contentLogContent">
                     {pokemon.map(({ name, moves }) => (
                       <div className="overflow-auto logList">
-                        <p>{name} ataco a pokependej02 con {moves[0].replace("-", " ")} </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
-                        <p>Pokependej01 ataco a pokependej02 con pokehabilidad </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+                        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
                       </div>
                                        ))}
                     </div>
