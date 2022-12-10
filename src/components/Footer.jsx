@@ -1,7 +1,7 @@
 import React from 'react'
 import ButtonSpace from './ButtonSpace'
 
-const Footer = ({pokemon, processHealt}) => {
+const Footer = ({pokemon, processHealt, }) => {
   return (
     <div className="playgroundFooter">
         <p className="footerP">Que deberia hacer?</p>
