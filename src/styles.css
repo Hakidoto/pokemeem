@@ -51,14 +51,29 @@ body {
 }
 
 .ally{
-  min-width: 120px;
-  min-height: 120px;
+  width: 120px;
+  height: 130px;
 }
 .enemy{
   min-width: 80px;
   min-height: 80px;
+  max-width: 120px;
+  max-height: 120px;
 }
-
+.enemy:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  filter: brightness(70%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, filter 0.3s;
+  
+}
+.enemyDown{
+  width: 80px;
+  height: 80px;
+  filter: grayscale(100%) brightness(80%);
+  transform: scale(1.1);
+  margin-right: -10px;
+}
 .playgroundFooter{
   height: 23.5%;
   display: flex;
@@ -83,6 +98,10 @@ body {
 .boton{
   width: 130px;
   height: 40px;
+}
+.boton:hover{
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .logg{

@@ -1,7 +1,7 @@
 import React from 'react'
 import LogList from './LogList'
 
-const Log = ({pokemon}) => {
+const Log = ({pokemon, log}) => {
   return (
     <div className="logg">
       <div>
@@ -13,7 +13,7 @@ const Log = ({pokemon}) => {
             <div className="logContentTitle">
               <p>Despliega el historial de acciones realizadas.</p>
             </div>
-            <LogList pokemon={pokemon} />
+            <LogList pokemon={pokemon} log={log} />
           </div>
         </div>
       </div>

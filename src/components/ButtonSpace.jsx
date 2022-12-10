@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ButtonSpace = ({pokemon, processHealt}) => {
+const ButtonSpace = ({pokemon, processHealt, }) => {
   return (
     <div className="botones">
         {pokemon.map(({ moves }) => (
@@ -8,7 +8,7 @@ const ButtonSpace = ({pokemon, processHealt}) => {
           <div>
             <button
               type="button"
-              className="btn btn-primary m-1 boton"
+              className="btn btn-light m-1 boton"
               /*data-toggle="tooltip"
               data-placement="top"*/
               title="Boton designado para elegir un movimiento"
@@ -18,10 +18,11 @@ const ButtonSpace = ({pokemon, processHealt}) => {
             </button>
             <button
               type="button"
-              className="btn btn-primary m-1 boton"
+              className="btn btn-light m-1 boton"
               /*data-toggle="tooltip"
               data-placement="top"*/
               title="Boton designado para elegir un item"
+              
             >
               {moves[1].replace("-", " ")}
             </button>
@@ -29,7 +30,7 @@ const ButtonSpace = ({pokemon, processHealt}) => {
           <div>
             <button
               type="button"
-              className="btn btn-primary m-1 boton"
+              className="btn btn-light m-1 boton"
               /*data-toggle="tooltip"
               data-placement="top"*/
               title="Boton designado para elegir un movimiento"
@@ -38,7 +39,7 @@ const ButtonSpace = ({pokemon, processHealt}) => {
             </button>
             <button
               type="button"
-              className="btn btn-primary m-1 boton"
+              className="btn btn-light m-1 boton"
               /*data-toggle="tooltip"
               data-placement="top"*/
               title="Boton designado para elegir un item"

@@ -11,6 +11,9 @@ const [pokemonEnemy, setPokemonEnemy] = useState([]);
 const [hpBarEnemy, setHpBarEnemy] = useState(0);
 const [HpEnemy, setHpEnemy] = useState(0)
 const [hpMaxEnemy, setHpMaxEnemy] = useState(0);
+const [barColor, setBarColor] = useState("bg-success");
+const [conVida, setConVida] = useState(true);
+
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   const dataAlly = await getPokemonApi(numPokemonAlly);
@@ -41,15 +44,33 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  setHpBarEnemy((HpEnemy/hpMaxEnemy)*100)
-}, [HpEnemy,hpMaxEnemy]);
+  if (hpBarEnemy <= 50 && hpBarEnemy>= 10){
+    setBarColor("bg-warning");
+  }else{
+    if(hpBarEnemy<10){
+      setBarColor("bg-danger")
+    }else{
+      setBarColor("bg-success")
+    }
+  }
+
+  if(HpEnemy <= 0){
+    setHpBarEnemy(0);
+    setHpEnemy(0);
+    setConVida(false); 
+  }else{
+    setConVida(true);
+    setHpBarEnemy((HpEnemy/hpMaxEnemy)*100)
+  }
+  
+}, [HpEnemy,hpMaxEnemy, barColor, hpBarEnemy]);
 
 
 const processHealt = () => {
   setHpEnemy(HpEnemy - 10)
-  
-  console.log(HpEnemy)
 }
+
+
 
 
 return (
@@ -57,9 +78,9 @@ return (
         <div>
           <div className="bg-dark text-light main">
 
-            <Playground processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy}/>
+            <Playground  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
                 
-            <Log pokemon={pokemon}/>
+            <Log pokemon={pokemon} />
 
           </div>
         </div>
