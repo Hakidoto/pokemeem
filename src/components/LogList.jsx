@@ -1,24 +1,18 @@
 import React from 'react'
 
-const LogList = ({pokemon}) => {
+const LogList = ({pokemon, log}) => {
+  let i = 0;
   return (
     <div className="contentLogContent">
-      {pokemon.map(({ name, moves }) => (
-      <div className="overflow-auto logList">
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
-        <p>{name} ataco a pokemon2 con {moves[0].replace("-", " ")} </p>
+      <div className='overflow-auto logList'>
+        <ul className='list-group border'>
+          {log.map(item => (
+            <li className='list-group-item bg-dark text-light' key={i++}>
+            {item.name} ataco a "{pokemon && pokemon.name}" con {item.moves} causando "" de daño
+            </li>
+          ))}
+        </ul>
       </div>
-      ))}
     </div>
   )
 }

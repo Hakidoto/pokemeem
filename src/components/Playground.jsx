@@ -3,7 +3,7 @@ import AllyContainer from './AllyContainer'
 import EnemyContainer from './EnemyContainer'
 import Footer from './Footer'
 
-const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, barColor, conVida,}) => {
+const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, barColor, conVida, handleClickLog}) => {
   return (
     <div className="playground">
 
@@ -16,7 +16,7 @@ const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, b
         <AllyContainer pokemon={pokemon}/>
       </div>
 
-      <Footer pokemon={pokemon} processHealt={processHealt}/>
+      <Footer handleClickLog={handleClickLog} pokemon={pokemon} processHealt={processHealt}/>
     </div>
   )
 }

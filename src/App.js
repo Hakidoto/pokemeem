@@ -13,7 +13,7 @@ const [HpEnemy, setHpEnemy] = useState(0)
 const [hpMaxEnemy, setHpMaxEnemy] = useState(0);
 const [barColor, setBarColor] = useState("bg-success");
 const [conVida, setConVida] = useState(true);
-
+const [log, setLog] = useState([]);
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   const dataAlly = await getPokemonApi(numPokemonAlly);
@@ -70,7 +70,10 @@ const processHealt = () => {
   setHpEnemy(HpEnemy - 10)
 }
 
-
+const handleClickLog = (name, moves) => {
+  // Agregue una nueva entrada al log
+  setLog([...log, { name, moves }]);
+}
 
 
 return (
@@ -78,9 +81,9 @@ return (
         <div>
           <div className="bg-dark text-light main">
 
-            <Playground  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
+            <Playground handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
                 
-            <Log pokemon={pokemon} />
+            <Log pokemon={pokemon} log={log}/>
 
           </div>
         </div>
