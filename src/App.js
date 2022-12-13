@@ -1,6 +1,6 @@
 import "./styles.css";
 import React, { useState, useEffect } from "react";
-import { getPokemonApi } from "./Helpers/getPokemonApi";
+import { getPokeApi } from "./Helpers/getPokemonApi";
 import Playground from "./components/Playground";
 import Log from "./components/Log";
 
@@ -16,8 +16,8 @@ const [conVida, setConVida] = useState(true);
 const [log, setLog] = useState([]);
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
-  const dataAlly = await getPokemonApi(numPokemonAlly);
-  const dataEnemy = await getPokemonApi(numPokemonEnemy);
+  const dataAlly = await getPokeApi(numPokemonAlly);
+  const dataEnemy = await getPokeApi(numPokemonEnemy);
   //console.log(dataAlly);
   //console.log(dataEnemy);
   setPokemon([dataAlly]);
@@ -37,7 +37,6 @@ const valorRandom = (arr) => {
 
 let randomValue1 = valorRandom(arrIdPokemon);
 let randomValue2 = valorRandom(arrIdPokemon);
-
 
 useEffect(() => {
   getPokemon(randomValue1, randomValue2);

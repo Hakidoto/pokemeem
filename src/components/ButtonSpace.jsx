@@ -1,7 +1,28 @@
-import React from 'react'
-import Tooltip from '@mui/material/Tooltip';
+import React, { useState, useEffect } from "react";
+import Tooltip from "@mui/material/Tooltip";
+import { getPokeMoveApi } from "../Helpers/getPokemonApi";
+const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
+  const [move, setMove] = useState([]);
 
-const ButtonSpace = ({pokemon, processHealt,handleClickLog}) => {
+  const getMove = async (moveName) => {
+    const dataAlly = await getPokeMoveApi(moveName);
+    console.log(dataAlly);
+    setMove([...move, dataAlly]);
+  };
+
+
+  /*pokemon.map(({ moves }) => {
+    for (let i = 0; i < 4; i++) {
+      moveSet.push(getMove(moves[i]));
+    }
+  }); */
+
+  useEffect(() => {
+    pokemon.map(({ moves }) => {
+      for (let i = 0; i < 4; i++) {
+       getMove(moves[i]);
+      }})
+  }, []);
 
   return (
     <div className="botones">
