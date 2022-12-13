@@ -1,7 +1,9 @@
-const urlApi = `https://pokeapi.co/api/v2/pokemon/`;
+const pokeApi = `https://pokeapi.co/api/v2/pokemon/`;
+const moveApi = `https://pokeapi.co/api/v2/move/`;
 
-export const getPokemonApi = async (numPokemon) => {
-  const respuesta = await fetch(urlApi + numPokemon);
+
+export const getPokeApi = async (numPokemon) => {
+  const respuesta = await fetch(pokeApi + numPokemon);
   const results = await respuesta.json();
   const name = await results.name;
   const img = await results.sprites.other.dream_world.front_default;
@@ -11,4 +13,14 @@ export const getPokemonApi = async (numPokemon) => {
   //console.log(moves)
   //console.log(img);
   return { name, img, moves, hp, id };
+};
+
+export const getPokeMoveApi = async (moveName) => {
+  const respuesta = await fetch(moveApi + moveName);
+  const results = await respuesta.json();
+  const accuracy = await results.accuracy;
+  const description = await results.flavor_text_entries[62].flavor_text;
+  const nameEsp = await results.names[5].name;
+  //console.log(img);
+  return { accuracy, description, nameEsp};
 };
