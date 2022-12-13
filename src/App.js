@@ -79,7 +79,7 @@ const handleClickLog = (name, moves) => {
 return (
       <div>
         <div>
-          <div className="bg-dark text-light main">
+          <div className="bgrd text-light main">
 
             <Playground handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
                 
@@ -89,7 +89,7 @@ return (
         </div>
         
         <div>
-          <div className="footer">
+          <div className="bgrd footer">
             <div className="spinner-border" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>

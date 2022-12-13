@@ -11,7 +11,7 @@ const Log = ({pokemon, log}) => {
         <div className="logContent">
           <div>
             <div className="logContentTitle">
-              <p>Despliega el historial de acciones realizadas.</p>
+              <p className='titlecontentLog'>Despliega el historial de acciones realizadas.</p>
             </div>
             <LogList pokemon={pokemon} log={log} />
           </div>
