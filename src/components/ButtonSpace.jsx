@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import { getPokeMoveApi } from "../Helpers/getPokemonApi";
-const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
+
+const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
   const [move, setMove] = useState([]);
 
   const getMove = async (moveName) => {
@@ -34,7 +35,7 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
-                
+                disabled={conVida?false:true}
                 onClick={()=>{
                   processHealt();
                   handleClickLog(name, moves[0].replace("-", " "))
@@ -48,6 +49,7 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
+                disabled={conVida?false:true}
                 onClick={()=>{
                   processHealt();
                   handleClickLog(name, moves[1].replace("-", " "))
@@ -61,6 +63,7 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
+                disabled={conVida?false:true}
                 onClick={()=>{
                   processHealt();
                   handleClickLog(name, moves[2].replace("-", " "))
@@ -73,6 +76,7 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
               <button
                 key={2}
                 type="button"
+                disabled={conVida?false:true}
                 className="btn btn-light m-1 boton"
                 onClick={()=>{
                   processHealt();

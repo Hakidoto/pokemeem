@@ -1,12 +1,10 @@
 import React from 'react'
 
-const LogList = ({pokemon, log}) => {
+const LogList = ({pokemon, log, enemyName, conVida}) => {
   let i = 0;
 
-  // Crea una referencia al último elemento del log
   const lastLogItemRef = React.useRef(null);
-
-  // Cuando se agregue un elemento al log, usa la función scrollIntoView en la referencia del último elemento
+  
   React.useEffect(() => {
     if (lastLogItemRef.current) {
       lastLogItemRef.current.scrollIntoView({ behavior: "smooth" });
@@ -17,15 +15,14 @@ const LogList = ({pokemon, log}) => {
     <div className="contentLogContent">
       <div className='overflow-auto logList'>
         <ul className='list-group border'>
-          {log.map(item => (
-            <li ref={lastLogItemRef} className='list-group-item bg-dark text-light m-1' key={i++}>
-            {item.name} ataco a "{pokemon && pokemon.name}" con {item.moves} causando "" de daño
-            </li>
-          ))}
+        {log.map((item, index) => (
+          <li ref={lastLogItemRef} className={`list-group-item ${conVida || index !== log.length - 1 ? 'bg-dark' : 'bg-success'} text-light m-1`} key={i++}>
+            {conVida || index !== log.length - 1 ? `${item.name} ataco a ${enemyName} con ${item.moves} causando "" de daño` : `${item.name} derroto a ${enemyName} con ${item.moves}`}
+          </li>
+        ))}
         </ul>
       </div>
     </div>
   )
 }
-
 export default LogList

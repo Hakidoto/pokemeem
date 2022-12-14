@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getPokeApi } from "./Helpers/getPokemonApi";
 import Playground from "./components/Playground";
 import Log from "./components/Log";
-
+import Swal from 'sweetalert2'
 
 function App() {
 const [pokemon, setPokemon] = useState([]);
@@ -14,6 +14,8 @@ const [hpMaxEnemy, setHpMaxEnemy] = useState(0);
 const [barColor, setBarColor] = useState("bg-success");
 const [conVida, setConVida] = useState(true);
 const [log, setLog] = useState([]);
+const [enemyName, setEnemyName]= useState("");
+
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   const dataAlly = await getPokeApi(numPokemonAlly);
@@ -25,6 +27,7 @@ const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
   
   setHpEnemy(dataEnemy.hp)
   setHpMaxEnemy(dataEnemy.hp)
+  setEnemyName(dataEnemy.name);
 };
 
 let arrIdPokemon = [];
@@ -67,6 +70,7 @@ useEffect(() => {
 
 const processHealt = () => {
   setHpEnemy(HpEnemy - 10)
+
 }
 
 const handleClickLog = (name, moves) => {
@@ -80,9 +84,9 @@ return (
         <div>
           <div className="bgrd text-light main">
 
-            <Playground handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
+            <Playground  handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
                 
-            <Log pokemon={pokemon} log={log}/>
+            <Log conVida={conVida} enemyName={enemyName} pokemon={pokemon} log={log}/>
 
           </div>
         </div>

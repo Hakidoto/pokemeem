@@ -87,6 +87,10 @@ body{
   margin-top: 10%;
   background-color: #04293A;
 }
+.imgModal{
+  height: 130px;
+  width: 130px;
+}
 .footerP{
   text-align: center;
   width: 50%;
