@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import ModalEnemy from './ModalEnemy'
 
+
 const EnemyContainer = ({pokemonEnemy, hpBarEnemy, HpEnemy, barColor, conVida}) => {
+  
+
   return (
     <div className="enemyContainer">
       {  
-        pokemonEnemy.map(({ name, hp,id,img }) => (
+        pokemonEnemy.map(({ name, hp,id,img, atack, type, defence, speed, atkEspecial, dfcEspecial,}) => (
           <div key={0}>
           <div key={1} className="progress lifeBar">
             <div key={2} className={`progress-bar ${barColor} vidaBarra`} role="progressbar" aria-label="Basic example" style={{width: `${hpBarEnemy}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -32,7 +35,7 @@ const EnemyContainer = ({pokemonEnemy, hpBarEnemy, HpEnemy, barColor, conVida}) 
               </>
             }
             
-          <ModalEnemy key={5} name={name} />
+          <ModalEnemy key={5} name={name} hp={hp} img={img} atack={atack} type={type} defence={defence} speed={speed} atkEspecial={atkEspecial} dfcEspecial={dfcEspecial}/>
           <p key={6} className='mt-2'>{HpEnemy}</p>
           </div>
         

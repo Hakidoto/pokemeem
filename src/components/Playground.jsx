@@ -16,7 +16,7 @@ const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, b
         <AllyContainer pokemon={pokemon}/>
       </div>
 
-      <Footer handleClickLog={handleClickLog} pokemon={pokemon} processHealt={processHealt}/>
+      <Footer conVida={conVida} handleClickLog={handleClickLog} pokemon={pokemon} processHealt={processHealt}/>
     </div>
   )
 }
