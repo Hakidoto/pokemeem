@@ -7,9 +7,11 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
   const getMove = async (moveName) => {
     const dataAlly = await getPokeMoveApi(moveName);
     console.log(dataAlly);
-    setMove([...move, dataAlly]);
+    const newArray = [...move, dataAlly];
+    setMove(newArray);
   };
-
+  
+  console.log(move);
 
   /*pokemon.map(({ moves }) => {
     for (let i = 0; i < 4; i++) {
@@ -20,74 +22,89 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog }) => {
   useEffect(() => {
     pokemon.map(({ moves }) => {
       for (let i = 0; i < 4; i++) {
-       getMove(moves[i]);
-      }})
-  }, []);
+        getMove(moves[i]);
+      }
+    });
+  }, [pokemon]);
 
   return (
     <div className="botones">
-        {pokemon.map(({ name, moves }) => (
+      {pokemon.map(({ name, moves }) => (
         <div key={0}>
           <div key={1}>
-            <Tooltip disableFocusListener title="Boton designado para realizar un movimiento" placement="top">
+            <Tooltip
+              disableFocusListener
+              title="Boton designado para realizar un movimiento"
+              placement="top"
+            >
               <button
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
-                
-                onClick={()=>{
+                onClick={() => {
                   processHealt();
-                  handleClickLog(name, moves[0].replace("-", " "))
+                  handleClickLog(name, moves[0].replace("-", " "));
                 }}
               >
                 {moves[0].replace("-", " ")}
               </button>
             </Tooltip>
-            <Tooltip disableFocusListener title="Boton designado para realizar un movimiento" placement="top">
+            <Tooltip
+              disableFocusListener
+              title="Boton designado para realizar un movimiento"
+              placement="top"
+            >
               <button
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
-                onClick={()=>{
+                onClick={() => {
                   processHealt();
-                  handleClickLog(name, moves[1].replace("-", " "))
+                  handleClickLog(name, moves[1].replace("-", " "));
                 }}
               >
                 {moves[1].replace("-", " ")}
               </button>
             </Tooltip>
-            <Tooltip disableFocusListener title="Boton designado para realizar un movimiento" placement="bottom">
+            <Tooltip
+              disableFocusListener
+              title="Boton designado para realizar un movimiento"
+              placement="bottom"
+            >
               <button
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
-                onClick={()=>{
+                onClick={() => {
                   processHealt();
-                  handleClickLog(name, moves[2].replace("-", " "))
+                  handleClickLog(name, moves[2].replace("-", " "));
                 }}
               >
                 {moves[2].replace("-", " ")}
               </button>
             </Tooltip>
-            <Tooltip disableFocusListener title="Boton designado para realizar un movimiento" placement="bottom">
+            <Tooltip
+              disableFocusListener
+              title="Boton designado para realizar un movimiento"
+              placement="bottom"
+            >
               <button
                 key={2}
                 type="button"
                 className="btn btn-light m-1 boton"
-                onClick={()=>{
+                onClick={() => {
                   processHealt();
-                  handleClickLog(name, moves[3].replace("-", " "))
+                  handleClickLog(name, moves[3].replace("-", " "));
                 }}
               >
                 {moves[3].replace("-", " ")}
               </button>
             </Tooltip>
           </div>
-          
         </div>
-        ))}
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default ButtonSpace
+export default ButtonSpace;
