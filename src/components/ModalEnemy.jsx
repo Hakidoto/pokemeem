@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ModalEnemy = ({name, hp, img,atack, type, defence, speed, atkEspecial, dfcEspecial}) => {
+const ModalEnemy = ({name, hp, img,attack, type, defense, speed, atkEsp, defEsp}) => {
   return (
     <div className="modal fade text-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div className="modal-dialog">
@@ -12,10 +12,10 @@ const ModalEnemy = ({name, hp, img,atack, type, defence, speed, atkEspecial, dfc
           <div className="modal-body d-flex">
             <div className='container border text-lg-start'>
               <p className='fs-5'>HP: <span className='h5 text-success'>{hp}</span></p>
-              <p className='fs-5'>Ataque: <span className='h5 text-success'>{atack}</span></p>
-              <p className='fs-5'>Ataque Especial: <span className='h5 text-success'>{atkEspecial}</span></p>
-              <p className='fs-5'>Defensa Especial: <span className='h5 text-success'>{dfcEspecial}</span></p>
-              <p className='fs-5'>Defensa: <span className='h5 text-success'>{defence}</span></p>
+              <p className='fs-5'>Ataque: <span className='h5 text-success'>{attack}</span></p>
+              <p className='fs-5'>Ataque Especial: <span className='h5 text-success'>{atkEsp}</span></p>
+              <p className='fs-5'>Defensa Especial: <span className='h5 text-success'>{defEsp}</span></p>
+              <p className='fs-5'>Defensa: <span className='h5 text-success'>{defense}</span></p>
               <p className='fs-5'>Tipo: <span className='h5 text-success'>{type}</span></p>
               <p className='fs-5'>Velocidad: <span className='h5 text-success'>{speed}</span></p>
             </div>
