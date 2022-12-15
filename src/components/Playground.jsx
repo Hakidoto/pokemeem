@@ -7,10 +7,6 @@ const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, b
   return (
     <div className="playground">
 
-      <div className="titilePlayground">
-        <p className="">Patio de juegos</p>
-      </div>
-
       <div className="charas">
         <EnemyContainer conVida={conVida} pokemonEnemy={pokemonEnemy} HpEnemy={HpEnemy} hpBarEnemy={hpBarEnemy} barColor={barColor}/>
         <AllyContainer pokemon={pokemon}/>
