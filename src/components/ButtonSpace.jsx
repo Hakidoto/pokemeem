@@ -9,14 +9,14 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
 
   const getMove = async (moveName) => {
     const dataAlly = await getPokeMoveApi(moveName);
-    console.log(dataAlly);
+    //console.log(dataAlly);
     updateValue(dataAlly);
   };
 
   const updateValue = (newValue) => {
     arrMoves.push(newValue);
     setMove(newValue);
-    console.log(arrMoves);
+    //console.log(arrMoves);
     return arrMoves;
   };
 

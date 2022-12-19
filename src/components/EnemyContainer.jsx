@@ -1,21 +1,34 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import ModalEnemy from './ModalEnemy'
 
 
-const EnemyContainer = ({pokemonEnemy, hpBarEnemy, HpEnemy, barColor, conVida}) => {
+const EnemyContainer = ({pokemonEnemy, hpBarEnemy, HpEnemy, barColor, conVida, enemyName}) => {
   
-
+  hpBarEnemy = Math.round(hpBarEnemy);
+  let enemyNameCapitalized = enemyName.charAt(0).toUpperCase() + enemyName.slice(1);
   return (
     <div className="enemyContainer">
       {  
-        pokemonEnemy.map(({ name, hp,id,img, attack, type, defense, speed, atkEsp, defEsp,}) => (
+        pokemonEnemy.map(({ name, hp,id,img, attack, type, defense, speed, atkEsp, defEsp}) => (
           <div key={0}>
-          <div key={1} className="progress lifeBar">
-            <div key={2} className={`progress-bar ${barColor} vidaBarra`} role="progressbar" aria-label="Basic example" style={{width: `${hpBarEnemy}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
+
+            <div className='contentHpBar'>
+              <div className='border contentHpBarContent'>
+                <div className='text-start nombreBar' >{enemyNameCapitalized}</div>
+                <div className='d-flex lifeBarContainer '>
+                  <div key={1} className="progress lifeBar">
+                    <div key={2} className={`progress-bar ${barColor} `} role="progressbar" aria-label="Basic example" style={{width: `${hpBarEnemy}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div className='porcentageBar mx-3'> HP</div>
+                </div>
+                <div className={(HpEnemy===0)?'my-1 text-start mx-1 text-danger nombreBarDerrotado' : 'text-end mx-4 nombreBar'} >{(HpEnemy ===0)?`${name.charAt(0).toUpperCase() + name.slice(1)} derrotado` : HpEnemy + "/" + hp}</div>
+              </div>
+            </div>
+          
             {
               (conVida)?
               <>
+
                 <img
                 key={3}
                 className="enemy"
@@ -23,7 +36,8 @@ const EnemyContainer = ({pokemonEnemy, hpBarEnemy, HpEnemy, barColor, conVida}) 
                 alt="pkmnEnemy"
                 data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                 />
-              </>:
+              </>
+              :
               <>
               <img
                 key={4}
@@ -35,8 +49,7 @@ const EnemyContainer = ({pokemonEnemy, hpBarEnemy, HpEnemy, barColor, conVida}) 
               </>
             }
             
-          <ModalEnemy key={5} name={name} hp={hp} img={img} attack={attack} type={type} defense={defense} speed={speed} atkEsp={atkEsp} defEsp={defEsp}/>
-          <p key={6} className='mt-2'>{HpEnemy}</p>
+          <ModalEnemy name={name} hp={hp} img={img} attack={attack} type={type} defense={defense} speed={speed} atkEsp={atkEsp} defEsp={defEsp}/>
           </div>
         
       ))}
