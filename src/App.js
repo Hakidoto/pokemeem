@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getPokeApi } from "./Helpers/getPokemonApi";
 import Playground from "./components/Playground";
 import Log from "./components/Log";
-import Swal from 'sweetalert2'
+
 
 function App() {
 const [pokemon, setPokemon] = useState([]);
@@ -84,7 +84,7 @@ return (
         <div>
           <div className="bgrd text-light main">
 
-            <Playground  handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
+            <Playground  enemyName={enemyName}  handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
                 
             <Log conVida={conVida} enemyName={enemyName} pokemon={pokemon} log={log}/>
 
