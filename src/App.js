@@ -5,6 +5,13 @@ import Playground from "./components/Playground";
 import Log from "./components/Log";
 
 
+/* El componente padre, practicamente llama a los componentes principales (playground y log) para iniciar
+toda la sopa.
+TODO: Convertir todos los useEffects en un solo arreglo, de preferencia global para poder acceder a los datos
+mas sencillamente. Esta conversion requiere ajustar los parametros del return y cambiar el map por el arreglo
+que generes. */
+
+
 function App() {
 const [pokemon, setPokemon] = useState([]);
 const [pokemonEnemy, setPokemonEnemy] = useState([]);

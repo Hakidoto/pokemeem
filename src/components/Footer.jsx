@@ -1,6 +1,8 @@
 import React from 'react'
 import ButtonSpace from './ButtonSpace'
 
+/* Componente que llama a los botones y despliega un texto con el nombre del pokemon a usar concatenado. */
+
 const Footer = ({pokemon, processHealt, handleClickLog, conVida}) => {
   return (
     <div className="playgroundFooter">

@@ -1,3 +1,8 @@
+/* helper encargado del procesamiento de daño al utilizar un movimiento,
+esta recibe los parametros que obtenemos del API (stats del movimiento y del pokemon aliado/rival) y retorna
+un valor numerico que se utilizara para reducir la vida del pokemon afectado. */
+
+
 export const damageCalc = (enemyLvl, allyAttack, movePower, enemyDef, allyType, enemyType, moveType ) => {
 
     //todo: terminar de asignar estas weas, hacer la validacion del weak resist, 

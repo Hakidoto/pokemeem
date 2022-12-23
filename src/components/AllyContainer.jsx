@@ -1,6 +1,9 @@
 import React from 'react'
 import ModalAlly from './ModalAlly'
 
+/* Componente que almacena los datos con las imagenes, barra de vida y otros datos del pokemon
+aliado, este proporciona el className para diseñar los componentes mencionados anteriormente.
+Y a su vez, muestra un modal al hacer click sobre el pokemon aliado. */
 
 const AllyContainer = ({pokemon}) => {
   

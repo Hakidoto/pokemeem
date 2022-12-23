@@ -1,3 +1,16 @@
+/* CSS principal del proyecto.
+  TODO: 
+  - Hacerlo responsivo, ya que se utilizan medidas fijas
+  - Hacer el redimensionamiento correcto de las imagenes al reducir el tamaño de la ventana
+  - Cambiar las fonts por unas que se adapten mejor a las del proyecto, no es necesario darle un toque retro
+  o ser minimalistas, solo que los numeros sean legibles y hagan contraste adecuadamente con el recuadro.
+  - Ocupar todo el espacio de la pagina
+  - Preferentemente Utilizar un display: grid y evitar los flexbox, ya que el flexbox solo sirve para una sola fila, el grid
+  es mejor para varias, y existen un kilometro de herramientas para hacer el ajuste y diseño con ellas, puedes
+  encontrarlas como "css layout generator"
+  - Cambiar el nombre de algunas clases/ids, ya que algunas son bastante confusas. Esto requiere modificar tambien
+  el nombre de la clase desde el otro lado. */
+
 
 body{
   position: absolute;
