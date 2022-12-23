@@ -3,6 +3,10 @@ import AllyContainer from './AllyContainer'
 import EnemyContainer from './EnemyContainer'
 import Footer from './Footer'
 
+/* Componente que almacena los contenedores con las imagenes, vida y otros datos del pokemon
+aliado y rival, a su vez es utilizado para recibir los props/datos (pokemonEnemy, pokemon, hpEnemy, etc)
+desde el componente padre (App.js me parece) */
+
 const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, barColor, conVida, handleClickLog, enemyName}) => {
   return (
     <div className="playground">

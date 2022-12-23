@@ -1,6 +1,10 @@
 const pokeApi = `https://pokeapi.co/api/v2/pokemon/`;
 const moveApi = `https://pokeapi.co/api/v2/move/`;
 
+/* helper encargado de la llamada y procesamiento del API, se divide en dos funciones:
+ - getPokeApi obtiene los datos relacionados al pokemon (nombre, imagen, movimientos y estadisticas)
+ - getMoveApi obtiene los datos relacionados al movimiento (no. de usos, potencia, tipo de movimiento, etc) */
+
 
 export const getPokeApi = async (numPokemon) => {
   const respuesta = await fetch(pokeApi + numPokemon);

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import { getPokeMoveApi } from "../Helpers/getPokemonApi";
 
+/* Componente que almacena los botones con los movimientos del pokemon aliado, 
+este proporciona el className para diseñar los componentes mencionados anteriormente.
+Tambien tiene un arreglo que guarda los parametros de los movimientos de forma global.  */
+
 const arrMoves = [];
 
 const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {

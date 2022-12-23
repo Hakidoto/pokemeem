@@ -1,5 +1,9 @@
 import React from 'react'
 
+/* Componente que muestra un modal con los datos del pokemon aliado o enemigo, todos tomados del PokeAPI.
+TODO: remover uno de los 2 Modales y simplemente pasar el nombre del pokemon, usando el helper getPokemonApi
+con la funcion getPokeApi */
+
 const ModalAlly = ({name, hp, img,attack, type, defense, speed, atkEsp, defEsp}) => {
   return (
     <div className="modal fade text-dark" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
