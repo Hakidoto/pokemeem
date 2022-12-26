@@ -22,6 +22,7 @@ const [barColor, setBarColor] = useState("bg-success");
 const [conVida, setConVida] = useState(true);
 const [log, setLog] = useState([]);
 const [enemyName, setEnemyName]= useState("");
+const [pokeType, setPokeType] = useState("");
 
 
 const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
