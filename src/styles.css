@@ -85,12 +85,14 @@ body{
 .ally{
   width: 120px;
   height: 130px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .enemy{
   min-width: 80px;
   min-height: 80px;
   max-width: 120px;
   max-height: 120px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .contentHpBar{
   margin-left: 70px;
@@ -196,6 +198,17 @@ body{
   background-color: #064663;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
+.botonDes {
+  width: 10vw;
+  height: 6vh;
+  font-size: 1.1vw;
+  transform: skewX(7deg);
+  color: aliceblue;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: #064663;
+  opacity: .5;
+}
 .boton:hover {
   transform: scale(1.1) skewX(-7deg);
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -229,6 +242,19 @@ body{
   height: 75vh;
   width: 100%;
 }
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop {
+  animation: pop 0.5s;
+}
+
 .bg-transition {
   transition: background-color 0.5s;
 }
