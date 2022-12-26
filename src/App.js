@@ -88,6 +88,13 @@ const handleClickLog = (name, moves) => {
 
 return (
       <div>
+      <div>
+          <div className="bgrd banner">
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
         <div>
           <div className="bgrd text-light main">
 
@@ -98,13 +105,7 @@ return (
           </div>
         </div>
         
-        <div>
-          <div className="bgrd footer">
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
   );
 }

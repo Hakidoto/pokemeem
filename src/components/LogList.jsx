@@ -3,7 +3,7 @@ import React from 'react'
 /* Componente que almacena la informacion de combate, este de momento despliega el nombre del pokemon aliado
 y enemigo, el movimiento usado y el daño infligido. */
 
-const LogList = ({pokemon, log, enemyName, conVida}) => {
+const LogList = ({log, enemyName, conVida}) => {
   let i = 0;
 
   const lastLogItemRef = React.useRef(null);

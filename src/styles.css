@@ -28,7 +28,7 @@ body{
 
 .playground{
   width: 50%;
-  height: 90vh;
+  height: 80vh;
   background-repeat: no-repeat;
   background-image: url("https://play.pokemonshowdown.com/sprites/gen6bgs/bg-city.jpg"); /* Podemos extraer bgs aleatorios reemplazando la ultima parte del vinculo*/
 }
@@ -97,6 +97,7 @@ body{
   height: 98px;
   border-radius: 10px;
   padding-left: 1px;
+  transform: skewX(-7deg);
 }
 .contentHpBarContent{
   background-color: rgb(145, 142, 142);
@@ -152,7 +153,7 @@ body{
   display: flex;
   background-color: hsla(0, 0%, 0%, 0.5);
   align-items: center;
-  margin-top: 10%;
+  margin-top: 19vh;
   background-color: #04293A;
 }
 .imgModal{
@@ -174,65 +175,61 @@ body{
   text-align: center;
 }
 
-.boton{
-  width: 130px;
-  height: 40px;
-  
-}
-.boton:hover{
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+.boton {
+  width: 10vw;
+  height: 6vh;
+  font-size: 1.1vw;
+  transform: skewX(7deg);
+  color: aliceblue;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
   background-color: #064663;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.boton:hover {
+  transform: scale(1.1) skewX(-7deg);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  border: 1px solid #064663;
+  background: white;
+  color: #064663;
+}
+.boton:active {
+  transform: scale(0.95);
 }
 
 .logg{
   width: 50%;
+  height: 82.5vh;
 }
-.titleLog{
-  background-color: #04293A;
-  border-radius: 5px;
-  color: #ECB365;
-  text-align: center;
-  width: 50%;
-  font-size: 2.3vw;
-  margin: 4% auto;
-}
-.logContent{
-  width: 100%;
-  height: 66.8vh;
-  background-color: #04293A;
-  padding-top: 1%;
-}
-.logContentTitle{
+.titleContainer{
   background-color: #064663;
-  border-radius: 5px;
-  text-align: center;
-  height: 70px;
-  width: 60%;
-  font-size: 1.4vw;
-  margin: 4% auto;
+  min-height: 6vh;
+  
 }
-.titlecontentLog{
-  color: #ECB365;
-  padding-top: 15px;
-  padding-top: 100;
+.title1{
+  font-size: 1.6vw;
 }
-.contentLogContent{
-  height: 23vw;;
-  width: 85%;
-  background-color: #064663;
-  margin-left: 8%;
+.title2{
+  background-color: #6f5e72;
+  font-size: 1.1vw;
+  padding-top: 7px;
 }
 
 .logList{
-  padding: 4%;
-  height: 98%;
+  height: 75vh;
+  width: 100%;
 }
-
-.footer{
+.banner {
   width: 100%;
   height: 17.7vh;
+  
+  background-image: url(../assets/International_Pokémon_logo.svg.png);
+  background-repeat: repeat;
+  background-position: left ;
+  background-size: 50% 100%;
+  overflow: hidden;
 }
+
 
 @media screen and (max-width: 768px) {
   .main{
@@ -242,17 +239,27 @@ body{
     width: 100%;
     height: 80vh;
   }
-  .titilePlayground{
-    font-size: 4vw;
-  }
   .playgroundFooter{
     margin-top: 17%;
+  }
+  .contentHpBar{
+    width: 25vw;
+    margin-left: 23%;
+  }
+  .contentHpBarContent{
+    height: 11vh;
+  }
+  .nombreBar{
+    font-size: 1rem;
+  }
+  .nombreBarDerrotado{
+    font-size: 2.2vw;
   }
   .logg{
     width: 100%;
   }
-  .titleLog{
-    font-size: 3vw;
+  .title1,.title2{
+    font-size: 1rem;
   }
   .logContentTitle{
     font-size: 3vw;

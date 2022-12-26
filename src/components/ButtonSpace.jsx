@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import { getPokeMoveApi } from "../Helpers/getPokemonApi";
+import { clippingParents } from "@popperjs/core";
 
 /* Componente que almacena los botones con los movimientos del pokemon aliado, 
 este proporciona el className para diseñar los componentes mencionados anteriormente.
@@ -47,11 +48,16 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
                 <button
                   key={2}
                   type="button"
-                  className="btn btn-light m-1 boton"
+                  className="m-2 boton"
                   disabled={conVida ? false : true}
                   onClick={() => {
-                    processHealt();
-                    handleClickLog(name, arrMoves[0].nameEsp);
+                    if (conVida){
+                      processHealt();
+                      handleClickLog(name, arrMoves[0].nameEsp);
+                    }else{
+                      console.log("Desactivated");
+                    }
+                    
                   }}
                 >
                   {arrMoves[0].nameEsp}
@@ -65,7 +71,7 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
                 <button
                   key={2}
                   type="button"
-                  className="btn btn-light m-1 boton"
+                  className="m-2 boton"
                   disabled={conVida ? false : true}
                   onClick={() => {
                     processHealt();
@@ -78,12 +84,12 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
               <Tooltip
                 disableFocusListener
                 title={arrMoves[2].description}
-                placement="bottom"
+                placement="left"
               >
                 <button
                   key={2}
                   type="button"
-                  className="btn btn-light m-1 boton"
+                  className="m-2 boton"
                   disabled={conVida ? false : true}
                   onClick={() => {
                     processHealt();
@@ -96,13 +102,13 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
               <Tooltip
                 disableFocusListener
                 title={arrMoves[3].description}
-                placement="bottom"
+                placement="right"
               >
                 <button
                   key={2}
                   type="button"
                   disabled={conVida ? false : true}
-                  className="btn btn-light m-1 boton"
+                  className="m-2 boton"
                   onClick={() => {
                     processHealt();
                     handleClickLog(name,arrMoves[3].nameEsp);
