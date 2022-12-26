@@ -5,7 +5,7 @@ y enemigo, el movimiento usado y el daño infligido. */
 
 const LogList = ({log, enemyName, conVida}) => {
   let i = 0;
-
+  
   const lastLogItemRef = React.useRef(null);
   
   React.useEffect(() => {
@@ -19,7 +19,7 @@ const LogList = ({log, enemyName, conVida}) => {
       <div className='overflow-auto logList'>
         <ul className='list-group border'>
         {log.map((item, index) => (
-          <li ref={lastLogItemRef} className={`list-group-item ${conVida || index !== log.length - 1 ? 'bg-dark' : 'bg-success'} text-light m-1`} key={i++}>
+          <li ref={lastLogItemRef} className={`list-group-item ${conVida && index === log.length - 1 ? 'bg-primary bg-transition' : index !== log.length - 1 ? 'bg-dark bg-transition' : 'bg-success bg-transition'} text-light m-1`} key={i++}>
             {conVida || index !== log.length - 1 ? `${item.name} ataco a ${enemyName} con ${item.moves} causando "" de daño` : `${item.name} derroto a ${enemyName} con ${item.moves}`}
           </li>
         ))}
