@@ -76,14 +76,13 @@ useEffect(() => {
 }, [HpEnemy,hpMaxEnemy, barColor, hpBarEnemy]);
 
 
-const processHealt = () => {
-  setHpEnemy(HpEnemy - 10)
- 
+const processHealt = (damage) => {
+  setHpEnemy(HpEnemy - damage)
 }
 
-const handleClickLog = (name, moves) => {
+const handleClickLog = (name, moves, damage) => {
   // Agregue una nueva entrada al log
-  setLog([...log, { name, moves }]);
+  setLog([...log, { name, moves, damage }]);
 
 
 }

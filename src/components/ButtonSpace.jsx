@@ -65,7 +65,7 @@ const ButtonSpace = ({
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[0].moveType;
 
-                        damageCalc(
+                        var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
                           enemyDef,
@@ -73,8 +73,8 @@ const ButtonSpace = ({
                           enemyType,
                           moveType
                         );
-                        processHealt();
-                        handleClickLog(name, arrMoves[0].nameEsp);
+                        processHealt(dmgResult);
+                        handleClickLog(name, arrMoves[0].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
                       }
@@ -101,7 +101,7 @@ const ButtonSpace = ({
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[1].moveType;
 
-                        damageCalc(
+                        var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
                           enemyDef,
@@ -110,8 +110,8 @@ const ButtonSpace = ({
                           moveType
                         );
 
-                        processHealt();
-                        handleClickLog(name, arrMoves[1].nameEsp);
+                        processHealt(dmgResult);
+                        handleClickLog(name, arrMoves[1].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
                       }
@@ -138,7 +138,7 @@ const ButtonSpace = ({
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[2].moveType;
 
-                        damageCalc(
+                        var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
                           enemyDef,
@@ -147,8 +147,8 @@ const ButtonSpace = ({
                           moveType
                         );
 
-                        processHealt();
-                        handleClickLog(name, arrMoves[2].nameEsp);
+                        processHealt(dmgResult);
+                        handleClickLog(name, arrMoves[2].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
                       }
@@ -175,7 +175,7 @@ const ButtonSpace = ({
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[3].moveType;
 
-                        damageCalc(
+                        var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
                           enemyDef,
@@ -184,8 +184,8 @@ const ButtonSpace = ({
                           moveType
                         );
 
-                        processHealt();
-                        handleClickLog(name, arrMoves[3].nameEsp);
+                        processHealt(dmgResult);
+                        handleClickLog(name, arrMoves[3].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
                       }
