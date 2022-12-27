@@ -19,7 +19,7 @@ const AllyContainer = ({pokemon}) => {
       case 'psychic':
         return '#BF00C8';
       case 'ice':
-        return '#5EFFF5';
+        return '#2B95CB';
       case 'dragon':
         return '#5E0063';
       case 'dark':
