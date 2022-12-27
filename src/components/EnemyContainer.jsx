@@ -1,6 +1,7 @@
 import React from 'react'
 import ModalEnemy from './ModalEnemy'
 
+
 /* Componente que almacena los datos con las imagenes, barra de vida y otros datos del pokemon
 enemigo, este proporciona el className para diseñar los componentes mencionados anteriormente.
 Y a su vez, muestra un modal al hacer click sobre el pokemon enemigo. */

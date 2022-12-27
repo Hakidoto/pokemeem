@@ -39,7 +39,7 @@ const getPokemon = async (numPokemonAlly, numPokemonEnemy) => {
 };
 
 let arrIdPokemon = [];
-for (let i = 1; i <= 649; i++) {
+for (let i = 1; i <= 151; i++) {
   arrIdPokemon.push(i);
 }
 const valorRandom = (arr) => {
@@ -78,12 +78,14 @@ useEffect(() => {
 
 const processHealt = () => {
   setHpEnemy(HpEnemy - 10)
-
+ 
 }
 
 const handleClickLog = (name, moves) => {
   // Agregue una nueva entrada al log
   setLog([...log, { name, moves }]);
+
+
 }
 
 
