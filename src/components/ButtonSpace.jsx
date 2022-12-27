@@ -72,8 +72,12 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
                   type="button"
                   className={conVida ? "m-2 boton" : "m-2 botonDes"}
                   onClick={() => {
-                    processHealt();
-                    handleClickLog(name,arrMoves[1].nameEsp);
+                    if (conVida){
+                      processHealt();
+                      handleClickLog(name, arrMoves[0].nameEsp);
+                    }else{
+                      console.log("Desactivated");
+                    }
                   }}
                 >
                   {arrMoves[1].nameEsp}
@@ -89,8 +93,12 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
                   type="button"
                   className={conVida ? "m-2 boton" : "m-2 botonDes"}
                   onClick={() => {
-                    processHealt();
-                    handleClickLog(name,arrMoves[2].nameEsp);
+                    if (conVida){
+                      processHealt();
+                      handleClickLog(name, arrMoves[0].nameEsp);
+                    }else{
+                      console.log("Desactivated");
+                    }
                   }}
                 >
                   {arrMoves[2].nameEsp}
@@ -106,8 +114,12 @@ const ButtonSpace = ({ pokemon, processHealt, handleClickLog, conVida }) => {
                   type="button"
                   className={conVida ? "m-2 boton" : "m-2 botonDes"}
                   onClick={() => {
-                    processHealt();
-                    handleClickLog(name,arrMoves[3].nameEsp);
+                    if (conVida){
+                      processHealt();
+                      handleClickLog(name, arrMoves[0].nameEsp);
+                    }else{
+                      console.log("Desactivated");
+                    }
                   }}
                 >
                   {arrMoves[3].nameEsp}
