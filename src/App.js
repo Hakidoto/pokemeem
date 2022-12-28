@@ -28,7 +28,7 @@ function App() {
   const [audio, setAudio] = useState("");
   const [turno, setTurno] = useState("ally");
   const [contadorLog, setContadorLog]= useState(0)
-  //console.log(audio);
+
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -39,7 +39,7 @@ function App() {
   }
 
   function audioPicker() {
-    let randomAudio = Math.floor(Math.random() * 4) ;
+    let randomAudio = Math.floor(Math.random() * 4);
     setAudio(`audio/audio-${randomAudio}.mp3`);
   }
 
@@ -139,8 +139,11 @@ function App() {
           <source id="audio-file" src={audio} type="audio/mpeg" />
         </audio>
 
-        <div>
-          <div className="bgrd banner"></div>
+        <div className="bgrd banner">
+          <figure className="logo">
+            <img src="images/pokemon.png" height="60" alt="logo" />
+          </figure>
+          <h1 className="text-white title-header">Simulador de batalla Pokemon</h1>
         </div>
         <div>
           <div className="bgrd text-light main">
@@ -172,35 +175,48 @@ function App() {
           </div>
         </div>
 
-        <div
-          className="btn-group"
-          role="group"
-          aria-label="Basic radio toggle button group"
-        >
-          <span className="text-music">Music: </span>
-          <input
-            type="radio"
-            className="btn-check"
-            name="btnradio"
-            id="btnradio1"
-            autoComplete="off"
-            onClick={playAudio}
-          />
-          <label className="btn btn-outline-primary" htmlFor="btnradio1">
-            On
-          </label>
+        <div className="footer">
+          <div className="footer-left">
+            <div
+              className="btn-group text-white"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <span className="text-music">Music: </span>
+              <input
+                type="radio"
+                className="btn-check"
+                name="btnradio"
+                id="btnradio1"
+                autoComplete="off"
+                onClick={playAudio}
+              />
+              <label className="btn btn-outline-primary" htmlFor="btnradio1">
+                On
+              </label>
 
-          <input
-            type="radio"
-            className="btn-check"
-            name="btnradio"
-            id="btnradio2"
-            autoComplete="off"
-            onClick={pauseAudio}
-          />
-          <label className="btn btn-outline-primary" htmlFor="btnradio2">
-            Off
-          </label>
+              <input
+                type="radio"
+                className="btn-check"
+                name="btnradio"
+                id="btnradio2"
+                autoComplete="off"
+                onClick={pauseAudio}
+              />
+              <label className="btn btn-outline-primary" htmlFor="btnradio2">
+                Off
+              </label>
+            </div>
+          </div>
+          <div className="footer-right">
+            <a href="https://github.com/Hakidoto/pokemeem.git">
+              <img
+                src="images/github.png"
+                className="icon-style"
+                alt="Icono Github"
+              />
+            </a>
+          </div>
         </div>
       </div>
     );
