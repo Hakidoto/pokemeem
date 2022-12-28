@@ -35,7 +35,7 @@ function App() {
   }
 
   function audioPicker() {
-    let randomAudio = Math.floor(Math.random() * 3);
+    let randomAudio = Math.floor(Math.random() * 4) ;
     setAudio(`audio/audio-${randomAudio}.mp3`);
   }
 
