@@ -5,7 +5,7 @@ import ModalAlly from "./ModalAlly";
 aliado, este proporciona el className para diseñar los componentes mencionados anteriormente.
 Y a su vez, muestra un modal al hacer click sobre el pokemon aliado. */
 
-const AllyContainer = ({ pokemon }) => {
+const AllyContainer = ({ pokemon, HpAlly, hpBarAlly, barColorAlly }) => {
   const getBackgroundColor = (type) => {
     switch (type) {
       case "fire":
@@ -52,95 +52,40 @@ const AllyContainer = ({ pokemon }) => {
 
   return (
     <div className="allyContainer">
-      {pokemon.map(
-        ({
-          name,
-          hp,
-          id,
-          img,
-          attack,
-          type,
-          defense,
-          speed,
-          atkEsp,
-          defEsp,
-        }) => (
+        {pokemon.map(({ name, hp,id,img, attack, type, defense, speed, atkEsp, defEsp }) => (
           <div key={0}>
-            <div
-              className="contentHpBar"
-              style={{ backgroundColor: getBackgroundColor(type) }}
-            >
-              <div className="border contentHpBarContent">
-                <div className="flexNombre">
-                  <div className="nombreBar">
-                    {name.charAt(0).toUpperCase() + name.slice(1)}
-                  </div>
+            <div className='contentHpBar' style={{ backgroundColor: getBackgroundColor(type) }}>
+              <div className='border contentHpBarContent'>
+              <div className="flexNombre">
+                  <div className="nombreBar">{name.charAt(0).toUpperCase() + name.slice(1)}</div>
                   <div className="lvlBar"> Lv. 1 </div>
-                </div>
-                <div className="d-flex lifeBarContainer ">
-                  <div key={1} className="progress lifeBar">
-                    <div
-                      key={2}
-                      className="progress-bar bg-success"
-                      role="progressbar"
-                      aria-label="Basic example"
-                      style={{ width: `100%` }}
-                      aria-valuenow="25"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
                   </div>
-                  <div className="porcentageBar mx-3"> HP</div>
+                <div className='d-flex lifeBarContainer ' >
+                  <div key={1} className="progress lifeBar">
+                    <div key={2} className={`progress-bar ${barColorAlly} `} role="progressbar" aria-label="Basic example" style={{width: `${hpBarAlly}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div className='porcentageBar mx-3'> HP</div>
                 </div>
                 <div className="row g-0 text-center border ">
-                  <div
-                    className="col-sm-6 col-md-5 tipoPoke"
-                    style={{ backgroundColor: getBackgroundColor(type) }}
-                  >
-                    {type}
-                  </div>
+                  <div className="col-sm-6 col-md-5 tipoPoke" style={{ backgroundColor: getBackgroundColor(type) }}>{type}</div>
                   <div className="col-6 col-md-7 border ">
-                    <div
-                      className={
-                        hp === 0
-                          ? "my-1 text-start mx-1 text-danger nombreBarDerrotado"
-                          : "text-center mx-4 hpCounter"
-                      }
-                    >
-                      {hp === 0
-                        ? `${
-                            name.charAt(0).toUpperCase() + name.slice(1)
-                          } derrotado`
-                        : hp + "/" + hp}
-                    </div>
+                  <div className={(HpAlly===0)?'my-1 text-start mx-1 text-danger nombreBarDerrotado' : 'text-end mx-4 nombreBar'} >{(HpAlly ===0)?`${name.charAt(0).toUpperCase() + name.slice(1)} derrotado` : HpAlly + "/" + hp}</div>
                   </div>
                 </div>
               </div>
             </div>
             <img
-              key={id}
-              className="ally"
-              src={`https://play.pokemonshowdown.com/sprites/ani-back-shiny/${name}.gif`}
-              alt="pkmAlly"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop2"
+            key={id} 
+            className="ally"
+            src={`https://play.pokemonshowdown.com/sprites/ani-back-shiny/${name}.gif`}
+            alt="pkmAlly"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
             />
-            <ModalAlly
-              name={name}
-              hp={hp}
-              img={img}
-              attack={attack}
-              type={type}
-              defense={defense}
-              speed={speed}
-              atkEsp={atkEsp}
-              defEsp={defEsp}
-            />
+            <ModalAlly name={name} hp={hp} img={img} attack={attack} type={type} defense={defense} speed={speed} atkEsp={atkEsp} defEsp={defEsp} />
           </div>
-        )
-      )}
+        ))}
     </div>
-  );
-};
+  )
+}
 
 export default AllyContainer;
