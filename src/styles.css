@@ -117,16 +117,10 @@ body{
   text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
-@font-face {
-  font-family: 'MyFont';
-  src: url('../assets/fonts/pokemon_fire_red.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .nombreBar{
   margin-left: 7px;
-  font-family: 'MyFont','Rubik Vinyl';
   font-size: 1.25vw;
 }
 
