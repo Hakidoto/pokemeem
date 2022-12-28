@@ -15,7 +15,7 @@ export const damageCalc = (
 ) => {
   //todo: terminar de asignar estas weas, hacer la validacion del weak resist,
   // calcular critico, pasar variables desde pokemon/move api
-  var level = 10;
+  var level = 1;
   var moveName = moveName;
   var attackStat = allyAttack;
   var attackPower = movePower;
@@ -33,7 +33,6 @@ export const damageCalc = (
         ((randomNumber + 85) / 100)
     );
 
-    console.log(result);
     if (Math.random() < 0.0625) {
       console.log("critical hit!");
       return result * 2;

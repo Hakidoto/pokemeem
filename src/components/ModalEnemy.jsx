@@ -24,7 +24,7 @@ const ModalEnemy = ({name, hp, img,attack, type, defense, speed, atkEsp, defEsp}
               <p className='fs-5'>Tipo: <span className='h5 text-success'>{type}</span></p>
               <p className='fs-5'>Velocidad: <span className='h5 text-success'>{speed}</span></p>
             </div>
-            <div className='container border text-lg-start'>
+            <div className='container border text-lg-start imgPokeModal'>
               <img
                 className="m-5 imgModal"
                 src={img} /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
