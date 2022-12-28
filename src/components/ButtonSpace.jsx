@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Tooltip from "@mui/material/Tooltip";
 import { getPokeMoveApi } from "../Helpers/getPokemonApi";
-import { clippingParents } from "@popperjs/core";
 import { damageCalc } from "../Helpers/damageFormula";
 import { enemyTurn } from "../Helpers/cpuRival";
 
@@ -18,9 +17,14 @@ const ButtonSpace = ({
   processHealth,
   handleClickLog,
   conVida,
+  enemyName,
+  turno,
+  processHealthAlly
 }) => {
+
   const [move, setMove] = useState({});
   const [enemyMove, setEnemyMove] = useState({});
+  const [turnoL, setTurnoL] = useState("ally");
 
   const getMove = async (moveName) => {
     const dataAlly = await getPokeMoveApi(moveName);
@@ -40,6 +44,9 @@ const ButtonSpace = ({
     //console.log(arrMoves);
     return arrayMove;
   };
+  useEffect(() =>{
+    console.log(turnoL)
+  }, [turnoL]);
 
   useEffect(() => {
     pokemon.map(({ moves }) => {
@@ -75,6 +82,9 @@ const ButtonSpace = ({
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[0].moveType;
                         var moveName = arrMoves[0].nameEsp;
+                        var enemyDanageResult = enemyTurn({pokemon,
+                          pokemonEnemy,
+                          arrEnemyMoves})
 
                         var dmgResult = damageCalc(
                           allyAttack,
@@ -85,11 +95,20 @@ const ButtonSpace = ({
                           moveType,
                           moveName
                         );
-                        processHealth(dmgResult);
-                        enemyTurn({ pokemon,
+                        
+                        if(turnoL==="ally"){
+                          processHealth(dmgResult);
+                          handleClickLog(name, arrMoves[0].nameEsp, dmgResult);
+                          setTurnoL("enemy")
+                        }else{
+                          processHealthAlly(enemyDanageResult);
+                          enemyTurn({ pokemon,
                           pokemonEnemy,
                           arrEnemyMoves})
-                        handleClickLog(name, arrMoves[0].nameEsp, dmgResult);
+                          handleClickLog(enemyName, arrEnemyMoves[Math.floor(Math.random() * 4)].nameEsp, enemyDanageResult);
+                          setTurnoL("ally")
+                        }
+                        
                       } else {
                         console.log("Desactivated");
                       }

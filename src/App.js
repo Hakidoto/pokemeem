@@ -16,13 +16,18 @@ function App() {
   const [hpBarEnemy, setHpBarEnemy] = useState(0);
   const [HpEnemy, setHpEnemy] = useState(0);
   const [hpMaxEnemy, setHpMaxEnemy] = useState(0);
+  const [hpBarAlly, setHpBarAlly] = useState(0);
+  const [HpAlly, setHpAlly] = useState(0);
+  const [hpMaxAlly, setHpMaxAlly] = useState(0);
   const [barColor, setBarColor] = useState("bg-success");
+  const [barColorAlly, setBarColorAlly] = useState("bg-success");
   const [conVida, setConVida] = useState(true);
   const [log, setLog] = useState([]);
   const [enemyName, setEnemyName] = useState("");
-  const [pokeType, setPokeType] = useState("");
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
+  const [turno, setTurno] = useState("ally");
+  const [contadorLog, setContadorLog]= useState(0)
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -48,6 +53,9 @@ function App() {
     setHpEnemy(dataEnemy.hp);
     setHpMaxEnemy(dataEnemy.hp);
     setEnemyName(dataEnemy.name);
+
+    setHpAlly(dataAlly.hp);
+    setHpMaxAlly(dataAlly.hp);
   };
 
   let arrIdPokemon = [];
@@ -79,6 +87,15 @@ function App() {
         setBarColor("bg-success");
       }
     }
+    if (hpBarAlly <= 50 && hpBarAlly >= 10) {
+      setBarColorAlly("bg-warning");
+    } else {
+      if (hpBarAlly < 10) {
+        setBarColorAlly("bg-danger");
+      } else {
+        setBarColorAlly("bg-success");
+      }
+    }
 
     if (HpEnemy <= 0) {
       setHpBarEnemy(0);
@@ -88,18 +105,33 @@ function App() {
       setConVida(true);
       setHpBarEnemy((HpEnemy / hpMaxEnemy) * 100);
     }
-  }, [HpEnemy, hpMaxEnemy, barColor, hpBarEnemy]);
+    if (HpAlly <= 0) {
+      setHpBarAlly(0);
+      setHpAlly(0);
+      //setConVida(false);
+    } else {
+      //setConVida(true);
+      setHpBarAlly((HpAlly / hpMaxAlly) * 100);
+    }
+  }, [HpEnemy, hpMaxEnemy, barColor, hpBarEnemy,HpAlly,hpBarAlly,hpMaxAlly]);
 
   const processHealth = (damage) => {
-    setHpEnemy(HpEnemy - damage);
+      setHpEnemy(HpEnemy - damage);
+  };
+  const processHealthAlly = (damage) => {
+    setHpAlly(HpAlly - damage);
   };
 
-  const handleClickLog = (name, moves, damage) => {
+  useEffect(() => {
+    console.log(contadorLog)
+  }, [contadorLog]);
+  const handleClickLog = (name, moves, damage, enemyName) => {
     // Agregue una nueva entrada al log
-    setLog([...log, { name, moves, damage }]);
+    setLog([...log, { name, moves, damage, enemyName }]);
+    setContadorLog(contadorLog+ 1);
   };
 
-  if (audio.length != 0) {
+  if (audio.length !== 0) {
     return (
       <div>
         <audio ref={audioRef} loop autoPlay>
@@ -119,11 +151,17 @@ function App() {
               handleClickLog={handleClickLog}
               conVida={conVida}
               processHealth={processHealth}
+              processHealthAlly={processHealthAlly}
               pokemon={pokemon}
               HpEnemy={HpEnemy}
+              HpAlly={HpAlly}
+              hpBarAlly={hpBarAlly}
               hpBarEnemy={hpBarEnemy}
               pokemonEnemy={pokemonEnemy}
               barColor={barColor}
+              barColorAlly={barColorAlly}
+              turno={turno}
+              
             />
 
             <Log
@@ -131,6 +169,7 @@ function App() {
               enemyName={enemyName}
               pokemon={pokemon}
               log={log}
+              contadorLog = {contadorLog}
             />
           </div>
         </div>
