@@ -3,6 +3,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { getPokeMoveApi } from "../Helpers/getPokemonApi";
 import { clippingParents } from "@popperjs/core";
 import { damageCalc } from "../Helpers/damageFormula";
+import { enemyTurn } from "../Helpers/cpuRival";
 
 /* Componente que almacena los botones con los movimientos del pokemon aliado, 
 este proporciona el className para diseñar los componentes mencionados anteriormente.
@@ -14,7 +15,7 @@ const arrEnemyMoves = [];
 const ButtonSpace = ({
   pokemon,
   pokemonEnemy,
-  processHealt,
+  processHealth,
   handleClickLog,
   conVida,
 }) => {
@@ -35,7 +36,7 @@ const ButtonSpace = ({
 
   const updateValue = (arrayMove, newValue, pokeState) => {
     arrayMove.push(newValue);
-    pokeState(arrayMove);
+    pokeState(newValue);
     //console.log(arrMoves);
     return arrayMove;
   };
@@ -73,6 +74,7 @@ const ButtonSpace = ({
                         var allyType = type;
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[0].moveType;
+                        var moveName = arrMoves[0].nameEsp;
 
                         var dmgResult = damageCalc(
                           allyAttack,
@@ -80,9 +82,13 @@ const ButtonSpace = ({
                           enemyDef,
                           allyType,
                           enemyType,
-                          moveType
+                          moveType,
+                          moveName
                         );
-                        processHealt(dmgResult);
+                        processHealth(dmgResult);
+                        enemyTurn({ pokemon,
+                          pokemonEnemy,
+                          arrEnemyMoves})
                         handleClickLog(name, arrMoves[0].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
@@ -119,7 +125,7 @@ const ButtonSpace = ({
                           moveType
                         );
 
-                        processHealt(dmgResult);
+                        processHealth(dmgResult);
                         handleClickLog(name, arrMoves[1].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
@@ -156,7 +162,7 @@ const ButtonSpace = ({
                           moveType
                         );
 
-                        processHealt(dmgResult);
+                        processHealth(dmgResult);
                         handleClickLog(name, arrMoves[2].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
@@ -193,7 +199,7 @@ const ButtonSpace = ({
                           moveType
                         );
 
-                        processHealt(dmgResult);
+                        processHealth(dmgResult);
                         handleClickLog(name, arrMoves[3].nameEsp, dmgResult);
                       } else {
                         console.log("Desactivated");
