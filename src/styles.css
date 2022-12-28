@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=VT323&display=swap');
+
 /* CSS principal del proyecto.
   TODO: 
   - Hacerlo responsivo, ya que se utilizan medidas fijas
@@ -17,6 +19,8 @@ body{
   width: 100%;
   background-color: #041C32;
 }
+
+
 
 .bgrd{
   background-color: #041C32;
@@ -83,8 +87,8 @@ body{
 }
 
 .ally{
-  width: 120px;
-  height: 130px;
+  width: 90px;
+  height: 90px;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .enemy{
@@ -101,7 +105,7 @@ body{
   width: 15vw;
   height: 11vh;
   border-radius: 10px;
-  padding-left: 1px;
+  padding-left: 4px;
   transform: skewX(-7deg);
 }
 .contentHpBarContent{
@@ -112,25 +116,37 @@ body{
 }
 .tipoPoke{
   font-size: 1.1vw;
-  border: 1px solid black;
+  border: 0.5px solid white;
   font-weight: bold;
   text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
-
+.flexNombre{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5px;
+  font-size: 1vw;
+  font-family: 'Poppins', sans-serif;
+}
 
 .nombreBar{
-  margin-left: 7px;
-  font-size: 1.25vw;
+  margin-left: 10px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;  
+  text-align: center;
+}
+
+.hpCounter{
+  font-size: 1vw;
 }
 
 .nombreBarDerrotado{
-  font-family: 'Rubik Vinyl', cursive;
-  font-size: 1vw;
+  font-family: 'Poppins', sans-serif;
+    font-size: 0.8vw;
 }
 .porcentageBar{
-  font-family: 'Rubik Vinyl', cursive;
-  margin-top: 1px
+  font-family: 'Poppins', sans-serif;
+  margin-top: 1px;
 }
 .lifeBarContainer{
   background-color: #2e353b;
@@ -163,8 +179,12 @@ body{
   background-color: #04293A;
 }
 .imgModal{
-  height: 130px;
   width: 130px;
+}
+
+.imgPokeModal{
+  display: flex;
+  align-items: center;
 }
 .footerP{
   text-align: center;
@@ -241,15 +261,41 @@ body{
   transition: background-color 0.5s;
 }
 
-.banner {
+.banner { /* header je */
+  display: flex;
+  align-items: center;
+
   width: 100%;
-  height: 17.7vh;
-  
-  background-image: url(../assets/International_Pokémon_logo.svg.png);
-  background-repeat: repeat;
-  background-position: left ;
-  background-size: 50% 100%;
-  overflow: hidden;
+  height: 10vh;
+  background-color: #064663;
+
+
+}
+
+.banner h1{
+  font-size: 5vh;
+  padding: 0 10px;
+  font-family: 'VT323', monospace;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo de la pagina */
+.logo{
+  display: flex;
+  margin-block-start: 3px;
+  margin-block-end: 3px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.logo img{
+  margin: 0px 0px 0px 5px;
+  display: flex;
+  filter: invert(1);
+  padding: 0px;
+  padding: 0px;
 }
 
 
@@ -291,3 +337,45 @@ body{
     margin-left: 5%;
   }
 }
+
+
+/* Pie de pagina */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  background-color: #064663;
+}
+
+/* Texto izquierdo del pie */
+.footer-left{
+  display: flex;
+ align-items: center;
+}
+
+.text-music{
+  padding-top: 6px;
+  padding-left: 6px;
+  margin-right: 10px;
+}
+
+/* Icono de github derecho del pie */
+.footer-right{
+  margin-top: 10px;
+  padding-right: 40px;
+}
+
+.icon-style {
+  height: 40px;
+  margin-left: 20px;
+  margin-top: 5px;
+  filter: invert(1);
+
+}
+
+.icon-style:hover{
+  background-color: #de875d;
+  padding: 2px;
+}
+

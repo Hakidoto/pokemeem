@@ -19,7 +19,7 @@ const LogList = ({log, enemyName, conVida}) => {
         <ul className='list-group border'>
         {log.map((item, index) => (
         <li ref={lastLogItemRef} className={`list-group-item ${conVida && index === log.length - 1 ? 'bg-primary bg-transition' : index !== log.length - 1 ? 'bg-dark bg-transition' : 'bg-success bg-transition'} text-light m-1`} key={i++}>
-          {conVida || index !== log.length - 1 ? `${item.name} ataco a ${enemyName} con ${item.moves} causando ${item.damage} de daño` : `${item.name} derroto a ${enemyName} con ${item.moves}`}
+          {conVida || index !== log.length - 1 ? `${item.name} atacó a ${enemyName} con ${item.moves} inflingiendo ${item.damage} de daño` : `${item.name} derroto a ${enemyName}`}
         </li>
       ))}
         </ul>
