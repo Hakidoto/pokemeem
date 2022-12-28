@@ -9,6 +9,7 @@ este proporciona el className para diseñar los componentes mencionados anterior
 Tambien tiene un arreglo que guarda los parametros de los movimientos de forma global.  */
 
 const arrMoves = [];
+const arrEnemyMoves = [];
 
 const ButtonSpace = ({
   pokemon,
@@ -18,24 +19,32 @@ const ButtonSpace = ({
   conVida,
 }) => {
   const [move, setMove] = useState({});
+  const [enemyMove, setEnemyMove] = useState({});
 
   const getMove = async (moveName) => {
     const dataAlly = await getPokeMoveApi(moveName);
     //console.log(dataAlly);
-    updateValue(dataAlly);
+    updateValue(arrMoves, dataAlly, setMove);
+  };
+ 
+  const getEnemyMove = async (moveName) => {
+    const dataEnemy = await getPokeMoveApi(moveName);
+    //console.log(dataEnemy);
+    updateValue(arrEnemyMoves, dataEnemy, setEnemyMove);
   };
 
-  const updateValue = (newValue) => {
-    arrMoves.push(newValue);
-    setMove(newValue);
+  const updateValue = (arrayMove, newValue, pokeState) => {
+    arrayMove.push(newValue);
+    pokeState(arrayMove);
     //console.log(arrMoves);
-    return arrMoves;
+    return arrayMove;
   };
 
   useEffect(() => {
     pokemon.map(({ moves }) => {
       for (let i = 0; i < 4; i++) {
         getMove(moves[i]);
+        getEnemyMove(pokemonEnemy[0].moves[i])
       }
     });
   }, [pokemon]);
