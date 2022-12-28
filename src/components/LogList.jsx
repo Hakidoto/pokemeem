@@ -13,7 +13,6 @@ const LogList = ({log, enemyName, conVida}) => {
       lastLogItemRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [log]);
-
   return (
     <div className="contentLogContent">
       <div className='overflow-auto logList'>

@@ -26,5 +26,6 @@ export const enemyTurn = ({
     moveType,
     moveName
   );
+  console.log(enemyDmgResult);
   return(enemyDmgResult)
 };

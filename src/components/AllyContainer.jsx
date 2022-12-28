@@ -5,7 +5,7 @@ import ModalAlly from './ModalAlly'
 aliado, este proporciona el className para diseñar los componentes mencionados anteriormente.
 Y a su vez, muestra un modal al hacer click sobre el pokemon aliado. */
 
-const AllyContainer = ({pokemon}) => {
+const AllyContainer = ({pokemon, HpAlly, hpBarAlly, barColorAlly}) => {
   const getBackgroundColor = (type) => {
     switch (type) {
       case 'fire':
@@ -59,14 +59,14 @@ const AllyContainer = ({pokemon}) => {
                 <div className='text-start nombreBar' >{name.charAt(0).toUpperCase() + name.slice(1)}</div>
                 <div className='d-flex lifeBarContainer ' >
                   <div key={1} className="progress lifeBar">
-                    <div key={2} className='progress-bar bg-success' role="progressbar" aria-label="Basic example" style={{width: `100%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div key={2} className={`progress-bar ${barColorAlly} `} role="progressbar" aria-label="Basic example" style={{width: `${hpBarAlly}%` }}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <div className='porcentageBar mx-3'> HP</div>
                 </div>
                 <div className="row g-0 text-center border ">
                   <div className="col-sm-6 col-md-5 tipoPoke" style={{ backgroundColor: getBackgroundColor(type) }}>{type}</div>
                   <div className="col-6 col-md-7 border ">
-                  <div className={(hp===0)?'my-1 text-start mx-1 text-danger nombreBarDerrotado' : 'text-end mx-4 nombreBar'} >{(hp ===0)?`${name.charAt(0).toUpperCase() + name.slice(1)} derrotado` : hp + "/" + hp}</div>
+                  <div className={(HpAlly===0)?'my-1 text-start mx-1 text-danger nombreBarDerrotado' : 'text-end mx-4 nombreBar'} >{(HpAlly ===0)?`${name.charAt(0).toUpperCase() + name.slice(1)} derrotado` : HpAlly + "/" + hp}</div>
                   </div>
                 </div>
               </div>
