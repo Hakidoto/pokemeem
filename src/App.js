@@ -76,7 +76,7 @@ useEffect(() => {
 }, [HpEnemy,hpMaxEnemy, barColor, hpBarEnemy]);
 
 
-const processHealt = (damage) => {
+const processHealth = (damage) => {
   setHpEnemy(HpEnemy - damage)
 }
 
@@ -100,7 +100,7 @@ return (
         <div>
           <div className="bgrd text-light main">
 
-            <Playground  enemyName={enemyName}  handleClickLog={handleClickLog}  conVida={conVida} processHealt={processHealt} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
+            <Playground  enemyName={enemyName}  handleClickLog={handleClickLog}  conVida={conVida} processHealth={processHealth} pokemon={pokemon} HpEnemy= {HpEnemy} hpBarEnemy={hpBarEnemy} pokemonEnemy={pokemonEnemy} barColor={barColor}/>
                 
             <Log conVida={conVida} enemyName={enemyName} pokemon={pokemon} log={log}/>
 

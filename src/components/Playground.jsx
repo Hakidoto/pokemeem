@@ -7,7 +7,7 @@ import Footer from './Footer'
 aliado y rival, a su vez es utilizado para recibir los props/datos (pokemonEnemy, pokemon, hpEnemy, etc)
 desde el componente padre (App.js me parece) */
 
-const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, barColor, conVida, handleClickLog, enemyName}) => {
+const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealth, barColor, conVida, handleClickLog, enemyName}) => {
   return (
     <div className="playground">
       <div className="separador"/>
@@ -16,7 +16,7 @@ const Playground = ({pokemonEnemy, pokemon, HpEnemy, hpBarEnemy, processHealt, b
         <AllyContainer pokemon={pokemon}/>
       </div>
 
-      <Footer conVida={conVida} handleClickLog={handleClickLog} pokemon={pokemon} processHealt={processHealt} pokemonEnemy={pokemonEnemy}/>
+      <Footer conVida={conVida} handleClickLog={handleClickLog} pokemon={pokemon} processHealth={processHealth} pokemonEnemy={pokemonEnemy}/>
     </div>
   )
 }
