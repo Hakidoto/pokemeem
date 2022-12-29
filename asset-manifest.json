@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pokemeem/static/css/main.621b160d.css",
+    "main.js": "/pokemeem/static/js/main.103bb972.js",
+    "index.html": "/pokemeem/index.html",
+    "main.621b160d.css.map": "/pokemeem/static/css/main.621b160d.css.map",
+    "main.103bb972.js.map": "/pokemeem/static/js/main.103bb972.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.621b160d.css",
+    "static/js/main.103bb972.js"
+  ]
+}
