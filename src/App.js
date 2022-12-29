@@ -28,6 +28,7 @@ function App() {
   const [enemyName, setEnemyName] = useState("");
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
+  const [volume, setVolume] = useState(0);
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -36,6 +37,11 @@ function App() {
   function playAudio() {
     audioRef.current.play();
   }
+  function handleVolumeChange(event) {
+  const newVolume = event.target.value;
+  setVolume(newVolume);
+  audioRef.current.volume = newVolume / 120;
+}
 
   function audioPicker() {
     let randomAudio = Math.floor(Math.random() * 4);
@@ -205,6 +211,10 @@ function App() {
               <label className="btn btn-outline-primary" htmlFor="btnradio2">
                 Off
               </label>
+            </div>
+            <div className="volumeContainer">
+              <label class="form-label musicVolume text-light">Volumen: {volume}%</label>
+              <input type="range" class="form-range" min="0" max="100" step="1" value={volume} onChange={handleVolumeChange} ></input>
             </div>
           </div>
           <div className="footer-right">

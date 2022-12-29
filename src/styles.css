@@ -383,6 +383,16 @@ body{
   padding-left: 6px;
   margin-right: 10px;
 }
+.volumeContainer{
+  height: 100%;
+  width: 150px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.musicVolume{
+  margin-left: 20px;
+  
+}
 
 /* Icono de github derecho del pie */
 .footer-right{
