@@ -69,7 +69,7 @@ const AllyContainer = ({conVidaAlly, pokemon, HpAlly, hpBarAlly, barColorAlly })
                 <div className="row g-0 text-center border ">
                   <div className="col-sm-6 col-md-5 tipoPoke" style={{ backgroundColor: getBackgroundColor(type) }}>{type}</div>
                   <div className="col-6 col-md-7 border ">
-                  <div className={(HpAlly===0)?'my-1 text-start mx-1 text-danger nombreBarDerrotado' : 'text-end mx-4 nombreBar'} >{(HpAlly ===0)?`${name.charAt(0).toUpperCase() + name.slice(1)} derrotado` : HpAlly + "/" + hp}</div>
+                  <div className={(HpAlly===0)?'my-1 text-start mx-1 text-danger nombreBarDerrotado' : 'text-center mx-4 hpCounter'} >{(HpAlly ===0)?`${name.charAt(0).toUpperCase() + name.slice(1)} derrotado` : HpAlly + "/" + hp}</div>
                   </div>
                 </div>
               </div>
