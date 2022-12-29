@@ -5,7 +5,7 @@ import ModalAlly from "./ModalAlly";
 aliado, este proporciona el className para diseñar los componentes mencionados anteriormente.
 Y a su vez, muestra un modal al hacer click sobre el pokemon aliado. */
 
-const AllyContainer = ({ pokemon, HpAlly, hpBarAlly, barColorAlly }) => {
+const AllyContainer = ({conVidaAlly, pokemon, HpAlly, hpBarAlly, barColorAlly }) => {
   const getBackgroundColor = (type) => {
     switch (type) {
       case "fire":
@@ -52,7 +52,7 @@ const AllyContainer = ({ pokemon, HpAlly, hpBarAlly, barColorAlly }) => {
 
   return (
     <div className="allyContainer">
-        {pokemon.map(({ name, hp,id,img, attack, type, defense, speed, atkEsp, defEsp }) => (
+        {pokemon.map(({ name, hp,img, attack, type, defense, speed, atkEsp, defEsp }) => (
           <div key={0}>
             <div className='contentHpBar' style={{ backgroundColor: getBackgroundColor(type) }}>
               <div className='border contentHpBarContent'>
@@ -74,13 +74,31 @@ const AllyContainer = ({ pokemon, HpAlly, hpBarAlly, barColorAlly }) => {
                 </div>
               </div>
             </div>
-            <img
-            key={id} 
-            className="ally"
-            src={`https://play.pokemonshowdown.com/sprites/ani-back-shiny/${name}.gif`}
-            alt="pkmAlly"
-            data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
-            />
+            {conVidaAlly ? (
+              <>
+                <img
+                  key={3}
+                  className="ally"
+                  src={`https://play.pokemonshowdown.com/sprites/ani-back-shiny/${name}.gif`} /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
+                  alt="pkmnAlly"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2"
+                />
+              </>
+            ) : (
+              <>
+                <img
+                  key={4}
+                  className="enemyDown"
+                  src={
+                    img
+                  } /* Se puede utilizar el nombre extraido de pokeapi para cambiar la imagen del pokemon */
+                  alt="pkmnAlly"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2"
+                />
+              </>
+            )}
             <ModalAlly name={name} hp={hp} img={img} attack={attack} type={type} defense={defense} speed={speed} atkEsp={atkEsp} defEsp={defEsp} />
           </div>
         ))}

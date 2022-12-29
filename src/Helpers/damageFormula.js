@@ -3,6 +3,7 @@ esta recibe los parametros que obtenemos del API (stats del movimiento y del pok
 un valor numerico que se utilizara para reducir la vida del pokemon afectado. */
 
 import { typeData } from "./typeData";
+import Swal from 'sweetalert2'
 
 export const damageCalc = (
   allyAttack,
@@ -24,7 +25,7 @@ export const damageCalc = (
   var stab = moveType === allyType ? 1.5 : 1.0;
   var randomNumber = Math.floor(Math.random() * 15 + 1);
 
-  if (attackPower != 0) {
+  if (attackPower !== 0) {
     let result = Math.floor(
       (((2 * level + 10) / 250) * (attackStat / defenseStat) * attackPower +
         2) *
@@ -34,6 +35,28 @@ export const damageCalc = (
     );
 
     if (Math.random() < 0.0625) {
+      let timerInterval
+      Swal.fire({
+        title: '¡Golpe critico!',
+        html: result * 2,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer')
+        }
+      })
       console.log("critical hit!");
       return result * 2;
     } else {

@@ -23,11 +23,12 @@ function App() {
   const [barColor, setBarColor] = useState("bg-success");
   const [barColorAlly, setBarColorAlly] = useState("bg-success");
   const [conVida, setConVida] = useState(true);
+  const [conVidaAlly, setConVidaAlly] = useState(false);
   const [log, setLog] = useState([]);
   const [enemyName, setEnemyName] = useState("");
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
-  const [turno, setTurno] = useState("ally");
+  const [volume, setVolume] = useState(0);
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -36,6 +37,11 @@ function App() {
   function playAudio() {
     audioRef.current.play();
   }
+  function handleVolumeChange(event) {
+  const newVolume = event.target.value;
+  setVolume(newVolume);
+  audioRef.current.volume = newVolume / 120;
+}
 
   function audioPicker() {
     let randomAudio = Math.floor(Math.random() * 4);
@@ -77,7 +83,6 @@ function App() {
     getPokemon(randomValue1, randomValue2);
   }, []);
 
-  console.log(arrayLog)
   useEffect(() => {
     if (hpBarEnemy <= 50 && hpBarEnemy >= 10) {
       setBarColor("bg-warning");
@@ -98,10 +103,11 @@ function App() {
       }
     }
 
-    if (HpEnemy <= 0) {
+    if (HpEnemy <=0) {
       setHpBarEnemy(0);
       setHpEnemy(0);
       setConVida(false);
+
     } else {
       setConVida(true);
       setHpBarEnemy((HpEnemy / hpMaxEnemy) * 100);
@@ -109,9 +115,9 @@ function App() {
     if (HpAlly <= 0) {
       setHpBarAlly(0);
       setHpAlly(0);
-      //setConVida(false);
+      setConVidaAlly(false);
     } else {
-      //setConVida(true);
+      setConVidaAlly(true);
       setHpBarAlly((HpAlly / hpMaxAlly) * 100);
     }
   }, [HpEnemy, hpMaxEnemy, barColor, hpBarEnemy,HpAlly,hpBarAlly,hpMaxAlly]);
@@ -160,9 +166,8 @@ function App() {
               pokemonEnemy={pokemonEnemy}
               barColor={barColor}
               barColorAlly={barColorAlly}
-              turno={turno}
+              conVidaAlly={conVidaAlly}
               log={log}
-              
             />
 
             <Log
@@ -170,6 +175,7 @@ function App() {
               enemyName={enemyName}
               pokemon={pokemon}
               log={arrayLog}
+              conVidaAlly={conVidaAlly}
             />
           </div>
         </div>
@@ -205,6 +211,10 @@ function App() {
               <label className="btn btn-outline-primary" htmlFor="btnradio2">
                 Off
               </label>
+            </div>
+            <div className="volumeContainer">
+              <label class="form-label musicVolume text-light">Volumen: {volume}%</label>
+              <input type="range" class="form-range" min="0" max="100" step="1" value={volume} onChange={handleVolumeChange} ></input>
             </div>
           </div>
           <div className="footer-right">

@@ -4,7 +4,7 @@ import LogList from './LogList'
 /* Componente que genera el esqueleto de la seccion del registro de batalla. Tambien llamada a otro componente
 que muestra los datos a detalle del combate. */
 
-const Log = ({pokemon, log, enemyName, conVida, contadorLog}) => {
+const Log = ({pokemon, log, enemyName, conVida, contadorLog, conVidaAlly}) => {
   return (
     <div className="logg border">
       <div className="row g-0 text-center border titleContainer">
@@ -13,7 +13,7 @@ const Log = ({pokemon, log, enemyName, conVida, contadorLog}) => {
           <p className='title22'>Historial de acciones realizadas</p>
         </div>
       </div>
-      <LogList contadorLog={contadorLog} conVida={conVida} enemyName={enemyName} pokemon={pokemon} log={log} />
+      <LogList contadorLog={contadorLog} conVida={conVida} conVidaAlly={conVidaAlly} enemyName={enemyName} pokemon={pokemon} log={log} />
     </div>
   )
 }
