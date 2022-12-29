@@ -9,7 +9,6 @@ export const enemyTurn = ({
 
   const randomMove = Math.floor(Math.random() * 4);
 
-  console.log('movimiento utilizado: ' + arrEnemyMoves[randomMove].nameEsp);
   var allyAttack = pokemonEnemy[0].attack;
   var movePower = arrEnemyMoves[randomMove].power; 
   var enemyDef = pokemon[0].defense;
@@ -17,6 +16,7 @@ export const enemyTurn = ({
   var enemyType = pokemon[0].type;
   var moveType = arrEnemyMoves[randomMove].moveType;
   var moveName = arrEnemyMoves[randomMove].nameEsp
+  var pokeEnemyName = pokemon[0].name;
   var enemyDmgResult = damageCalc(
     allyAttack,
     movePower,
@@ -27,6 +27,10 @@ export const enemyTurn = ({
     moveName
   );
   console.log(enemyDmgResult);
-  return(enemyDmgResult)
+  return[{
+    damage: enemyDmgResult,
+    move: moveName,
+    enemy: pokeEnemyName
+  }]
   
 };
