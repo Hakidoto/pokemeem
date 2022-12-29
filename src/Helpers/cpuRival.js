@@ -1,5 +1,5 @@
 import { damageCalc } from "./damageFormula";
-
+import Swal from 'sweetalert2'
 
 export const enemyTurn = ({
     pokemon,
@@ -7,7 +7,12 @@ export const enemyTurn = ({
     arrEnemyMoves
   }) => {
 
+    
+
   const randomMove = Math.floor(Math.random() * 4);
+  if(pokemonEnemy.hp <=5){
+    Swal.fire('Any fool can use a computer')
+  }
 
   var allyAttack = pokemonEnemy[0].attack;
   var movePower = arrEnemyMoves[randomMove].power; 
@@ -26,7 +31,7 @@ export const enemyTurn = ({
     moveType,
     moveName
   );
-  console.log(enemyDmgResult);
+
   return[{
     damage: enemyDmgResult,
     move: moveName,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ModalEnemy from "./ModalEnemy";
 
 /* Componente que almacena los datos con las imagenes, barra de vida y otros datos del pokemon
@@ -13,6 +13,8 @@ const EnemyContainer = ({
   conVida,
   enemyName,
 }) => {
+
+
   const getBackgroundColor = (type) => {
     switch (type) {
       case "fire":
@@ -112,7 +114,7 @@ const EnemyContainer = ({
                       className={
                         HpEnemy === 0
                           ? "my-1 text-start mx-1 text-danger nombreBarDerrotado"
-                          : "text-center mx-4 hpCounter"
+                          : "text-center mx-4 nombreBar"
                       }
                     >
                       {HpEnemy === 0

@@ -23,11 +23,11 @@ function App() {
   const [barColor, setBarColor] = useState("bg-success");
   const [barColorAlly, setBarColorAlly] = useState("bg-success");
   const [conVida, setConVida] = useState(true);
+  const [conVidaAlly, setConVidaAlly] = useState(false);
   const [log, setLog] = useState([]);
   const [enemyName, setEnemyName] = useState("");
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
-  const [turno, setTurno] = useState("ally");
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -77,7 +77,6 @@ function App() {
     getPokemon(randomValue1, randomValue2);
   }, []);
 
-  console.log(arrayLog)
   useEffect(() => {
     if (hpBarEnemy <= 50 && hpBarEnemy >= 10) {
       setBarColor("bg-warning");
@@ -98,10 +97,11 @@ function App() {
       }
     }
 
-    if (HpEnemy <= 0) {
+    if (HpEnemy <=0) {
       setHpBarEnemy(0);
       setHpEnemy(0);
       setConVida(false);
+
     } else {
       setConVida(true);
       setHpBarEnemy((HpEnemy / hpMaxEnemy) * 100);
@@ -109,9 +109,9 @@ function App() {
     if (HpAlly <= 0) {
       setHpBarAlly(0);
       setHpAlly(0);
-      //setConVida(false);
+      setConVidaAlly(false);
     } else {
-      //setConVida(true);
+      setConVidaAlly(true);
       setHpBarAlly((HpAlly / hpMaxAlly) * 100);
     }
   }, [HpEnemy, hpMaxEnemy, barColor, hpBarEnemy,HpAlly,hpBarAlly,hpMaxAlly]);
@@ -160,9 +160,8 @@ function App() {
               pokemonEnemy={pokemonEnemy}
               barColor={barColor}
               barColorAlly={barColorAlly}
-              turno={turno}
+              conVidaAlly={conVidaAlly}
               log={log}
-              
             />
 
             <Log
@@ -170,6 +169,7 @@ function App() {
               enemyName={enemyName}
               pokemon={pokemon}
               log={arrayLog}
+              conVidaAlly={conVidaAlly}
             />
           </div>
         </div>

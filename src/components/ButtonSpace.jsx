@@ -6,7 +6,7 @@ import { enemyTurn } from "../Helpers/cpuRival";
 
 /* Componente que almacena los botones con los movimientos del pokemon aliado, 
 este proporciona el className para diseñar los componentes mencionados anteriormente.
-Tambien tiene un arreglo que guarda los parametros de los movimientos de forma global.  */
+Tambien tiene un arreglo que guarda los parametros de los movimientos de forma global. */
 
 const arrMoves = [];
 const arrEnemyMoves = [];
@@ -15,17 +15,16 @@ const ButtonSpace = ({
   pokemonEnemy,
   processHealth,
   handleClickLog,
-  handleClickLogEnemy,
   conVida,
-  enemyName,
-  turno,
-  processHealthAlly
+  processHealthAlly,
+  conVidaAlly
 }) => {
 
   const [move, setMove] = useState({});
   const [enemyMove, setEnemyMove] = useState({});
-  const [turnoL, setTurnoL] = useState("ally");
+  const [desactivated, setDesactivated] = useState(false);
 
+ 
   const getMove = async (moveName) => {
     const dataAlly = await getPokeMoveApi(moveName);
     //console.log(dataAlly);
@@ -44,11 +43,6 @@ const ButtonSpace = ({
     //console.log(arrMoves);
     return arrayMove;
   };
-  useEffect(() =>{
-    console.log(turnoL)
-  }, [turnoL]);
-
-  
 
   useEffect(() => {
     pokemon.map(({ moves }) => {
@@ -59,11 +53,12 @@ const ButtonSpace = ({
     });
   }, [pokemon]);
 
+
   if (arrMoves.length === 4) {
     return (
       <div className="botones">
         {pokemon.map(
-          ({ name, hp, attack, type, defense, speed, atkEsp, defEsp }) => (
+          ({ name, attack, type}) => (
             <div key={0}>
               <div key={1}>
                 <Tooltip
@@ -74,9 +69,9 @@ const ButtonSpace = ({
                   <button
                     key={2}
                     type="button"
-                    className={conVida ? "m-2 boton" : "m-2 botonDes"}
+                    className={(conVida && conVidaAlly && desactivated === false)? "m-2 boton" : "m-2 botonDes"}
                     onClick={() => {
-                      if (conVida) {
+                      if (conVida && conVidaAlly && desactivated === false) {
                         var allyAttack = attack;
                         var movePower = arrMoves[0].power;
                         var enemyDef = pokemonEnemy[0].defense;
@@ -88,7 +83,7 @@ const ButtonSpace = ({
                         var enemyTurnData = enemyTurn({pokemon,
                           pokemonEnemy,
                           arrEnemyMoves})
-                        console.log(enemyTurnData[0])
+                        
                         var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
@@ -99,13 +94,26 @@ const ButtonSpace = ({
                           moveName
                         );
                         
+                        if(conVidaAlly){
                           processHealth(dmgResult);
                           handleClickLog(name, arrMoves[0].nameEsp, dmgResult, enemyName);
-                          setTurnoL("enemy")
-                          processHealthAlly(enemyTurnData[0].damage);                  
-                          handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
-                          setTurnoL("ally")
-
+                          setDesactivated(true)
+                          setTimeout(() => {
+                            if(conVida !== false){
+                              processHealthAlly(enemyTurnData[0].damage);                  
+                              handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
+                              setDesactivated(false)
+                            }else{
+                              console.log("sin vida enemiga")
+                            }
+                            
+                          }, "1000")
+                        }else{
+                          console.log("sin vida aliada")
+                        }
+                        
+                      }else {
+                        console.log("Desactivated");
                       }
                     }}
                   >
@@ -120,9 +128,9 @@ const ButtonSpace = ({
                   <button
                     key={2}
                     type="button"
-                    className={conVida ? "m-2 boton" : "m-2 botonDes"}
+                    className={(conVida && conVidaAlly && desactivated === false)? "m-2 boton" : "m-2 botonDes"}
                     onClick={() => {
-                      if (conVida) {
+                      if (conVida && conVidaAlly && desactivated === false) {
                         var allyAttack = attack;
                         var movePower = arrMoves[1].power;
                         var enemyDef = pokemonEnemy[0].defense;
@@ -134,7 +142,6 @@ const ButtonSpace = ({
                         var enemyTurnData = enemyTurn({pokemon,
                           pokemonEnemy,
                           arrEnemyMoves})
-                        console.log(enemyTurnData[0])
                         var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
@@ -145,12 +152,16 @@ const ButtonSpace = ({
                           moveName
                         );
                         
+                        setTimeout(() => {
                           processHealth(dmgResult);
                           handleClickLog(name, arrMoves[1].nameEsp, dmgResult, enemyName);
-                          setTurnoL("enemy")
-                          processHealthAlly(enemyTurnData[0].damage);                  
-                          handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
-                          setTurnoL("ally")
+                          setDesactivated(true)
+                          setTimeout(() => {
+                            processHealthAlly(enemyTurnData[0].damage);                  
+                            handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
+                            setDesactivated(false);
+                          }, "1000")
+                        }, "100")
                       } else {
                         console.log("Desactivated");
                       }
@@ -167,9 +178,9 @@ const ButtonSpace = ({
                   <button
                     key={2}
                     type="button"
-                    className={conVida ? "m-2 boton" : "m-2 botonDes"}
+                    className={(conVida && conVidaAlly && desactivated === false)? "m-2 boton" : "m-2 botonDes"}
                     onClick={() => {
-                      if (conVida) {
+                      if (conVida && conVidaAlly && desactivated === false) {
                         var allyAttack = attack;
                         var movePower = arrMoves[2].power;
                         var enemyDef = pokemonEnemy[0].defense;
@@ -181,7 +192,6 @@ const ButtonSpace = ({
                         var enemyTurnData = enemyTurn({pokemon,
                           pokemonEnemy,
                           arrEnemyMoves})
-                        console.log(enemyTurnData[0])
                         var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
@@ -192,12 +202,16 @@ const ButtonSpace = ({
                           moveName
                         );
                         
+                        setTimeout(() => {
                           processHealth(dmgResult);
                           handleClickLog(name, arrMoves[2].nameEsp, dmgResult, enemyName);
-                          setTurnoL("enemy")
-                          processHealthAlly(enemyTurnData[0].damage);                  
-                          handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
-                          setTurnoL("ally")
+                          setDesactivated(true)
+                          setTimeout(() => {
+                            processHealthAlly(enemyTurnData[0].damage);                  
+                            handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
+                            setDesactivated(false)
+                          }, "1000")
+                        }, "100")
                       } else {
                         console.log("Desactivated");
                       }
@@ -214,9 +228,9 @@ const ButtonSpace = ({
                   <button
                     key={2}
                     type="button"
-                    className={conVida ? "m-2 boton" : "m-2 botonDes"}
+                    className={(conVida && conVidaAlly && desactivated === false)? "m-2 boton" : "m-2 botonDes"}
                     onClick={() => {
-                      if (conVida) {
+                      if (conVida && conVidaAlly && desactivated === false) {
                         var allyAttack = attack;
                         var movePower = arrMoves[3].power;
                         var enemyDef = pokemonEnemy[0].defense;
@@ -228,7 +242,6 @@ const ButtonSpace = ({
                         var enemyTurnData = enemyTurn({pokemon,
                           pokemonEnemy,
                           arrEnemyMoves})
-                        console.log(enemyTurnData[0])
                         var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
@@ -238,13 +251,18 @@ const ButtonSpace = ({
                           moveType,
                           moveName
                         );
-                        
+                        setTimeout(() => {
                           processHealth(dmgResult);
                           handleClickLog(name, arrMoves[3].nameEsp, dmgResult, enemyName);
-                          setTurnoL("enemy")
-                          processHealthAlly(enemyTurnData[0].damage);                  
-                          handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
-                          setTurnoL("ally")
+                          setDesactivated(true);
+                          setTimeout(() => {
+                            processHealthAlly(enemyTurnData[0].damage);                  
+                            handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
+                            setDesactivated(false);
+                          }, "1000")
+                        }, "100")
+                          
+                          
                       } else {
                         console.log("Desactivated");
                       }

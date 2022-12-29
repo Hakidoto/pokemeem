@@ -18,6 +18,7 @@ body{
   position: absolute;
   width: 100%;
   background-color: #041C32;
+  
 }
 
 
@@ -115,9 +116,9 @@ body{
   
 }
 .tipoPoke{
-  font-size: 1.1vw;
+  font-size: 1.2vw;
   border: 0.5px solid white;
-  font-weight: bold;
+  font-family: 'VT323', monospace;
   text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
@@ -125,14 +126,14 @@ body{
   display: flex;
   justify-content: space-between;
   margin-right: 5px;
-  font-size: 1vw;
-  font-family: 'Poppins', sans-serif;
+  font-size: 1.3vw;
+  font-family: 'VT323', monospace;
 }
 
 .nombreBar{
   margin-left: 10px;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;  
+  font-size: 1.3vw;
+  font-family: 'VT323', monospace;
   text-align: center;
 }
 
@@ -141,11 +142,11 @@ body{
 }
 
 .nombreBarDerrotado{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'VT323', monospace;
     font-size: 0.8vw;
 }
 .porcentageBar{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'VT323', monospace;
   margin-top: 1px;
 }
 .lifeBarContainer{
@@ -188,9 +189,24 @@ body{
 }
 .footerP{
   text-align: center;
+  font-family: 'VT323', monospace;
   width: 50%;
   font-size: 2.5vw;
   color: #ECB365;
+  transition: transform 0.5s; /* tiempo en segundos */
+}
+.footerP:hover {
+  transform: scale(0.7);
+}
+.linkFooter{
+  color: #fff;
+  transition: font-size 0.8s, color 0.5s /* tiempo en segundos */
+}
+.linkFooter:hover{
+  color: rgb(150, 110, 0);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 180%;
 }
 .botones{
   border-left: 1px solid rgb(255, 255, 255);
@@ -204,7 +220,8 @@ body{
 .boton {
   width: 10vw;
   height: 6vh;
-  font-size: 1.1vw;
+  font-size: 1.3vw;
+  font-family: 'VT323', monospace;
   transform: skewX(7deg);
   color: aliceblue;
   border-radius: 5px;
@@ -241,20 +258,25 @@ body{
 .titleContainer{
   background-color: #064663;
   min-height: 6vh;
-  
+  font-family: 'VT323', monospace;
 }
 .title1{
-  font-size: 1.6vw;
+  font-size: 2.2vw;
 }
 .title2{
   background-color: #6f5e72;
-  font-size: 1.1vw;
+  font-size: 1.45vw;
   padding-top: 7px;
 }
-
+.contentLogContent{
+  height: 100%;
+  width: 100%;
+}
 .logList{
   height: 75vh;
   width: 100%;
+  font-family: 'VT323', monospace;
+  font-size: 1.5vw;
 }
 
 .bg-transition {
@@ -343,6 +365,8 @@ body{
 .footer {
   display: flex;
   justify-content: space-between;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
   width: 100%;
   height: 70px;
   background-color: #064663;
@@ -371,11 +395,12 @@ body{
   margin-left: 20px;
   margin-top: 5px;
   filter: invert(1);
-
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .icon-style:hover{
-  background-color: #de875d;
-  padding: 2px;
+  filter: brightness(70%);
+  transform: scale(1.3);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, filter 0.3s;
 }
 
