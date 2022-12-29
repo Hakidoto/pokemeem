@@ -28,7 +28,6 @@ function App() {
   const [enemyName, setEnemyName] = useState("");
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
-  const [volume, setVolume] = useState(0);
 
   function pauseAudio() {
     audioRef.current.pause();
