@@ -125,10 +125,9 @@ function App() {
   useEffect(() => {
     console.log(contadorLog)
   }, [contadorLog]);
-  const handleClickLog = (name, moves, damage, enemyName) => {
+  const handleClickLog = (name, moves, damage, target) => {
     // Agregue una nueva entrada al log
-    setLog([...log, { name, moves, damage, enemyName }]);
-    setContadorLog(contadorLog+ 1);
+    setLog([...log, { name, moves, damage, target }]);
   };
 
   if (audio.length !== 0) {
