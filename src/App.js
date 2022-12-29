@@ -9,6 +9,7 @@ toda la sopa.
 TODO: Convertir todos los useEffects en un solo arreglo, de preferencia global para poder acceder a los datos
 mas sencillamente. Esta conversion requiere ajustar los parametros del return y cambiar el map por el arreglo
 que generes. */
+const arrayLog = [];
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -27,7 +28,6 @@ function App() {
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
   const [turno, setTurno] = useState("ally");
-  const [contadorLog, setContadorLog]= useState(0)
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -77,6 +77,7 @@ function App() {
     getPokemon(randomValue1, randomValue2);
   }, []);
 
+  console.log(arrayLog)
   useEffect(() => {
     if (hpBarEnemy <= 50 && hpBarEnemy >= 10) {
       setBarColor("bg-warning");
@@ -122,12 +123,12 @@ function App() {
     setHpAlly(HpAlly - damage);
   };
 
-  useEffect(() => {
-    console.log(contadorLog)
-  }, [contadorLog]);
+
   const handleClickLog = (name, moves, damage, target) => {
     // Agregue una nueva entrada al log
-    setLog([...log, { name, moves, damage, target }]);
+    arrayLog.push({ name, moves, damage, target })
+    setLog([...log, arrayLog]);
+    return arrayLog;
   };
 
   if (audio.length !== 0) {
@@ -160,6 +161,7 @@ function App() {
               barColor={barColor}
               barColorAlly={barColorAlly}
               turno={turno}
+              log={log}
               
             />
 
@@ -167,8 +169,7 @@ function App() {
               conVida={conVida}
               enemyName={enemyName}
               pokemon={pokemon}
-              log={log}
-              contadorLog = {contadorLog}
+              log={arrayLog}
             />
           </div>
         </div>
