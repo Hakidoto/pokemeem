@@ -16,6 +16,7 @@ const ButtonSpace = ({
   pokemonEnemy,
   processHealth,
   handleClickLog,
+  handleClickLogEnemy,
   conVida,
   enemyName,
   turno,
@@ -82,10 +83,11 @@ const ButtonSpace = ({
                         var enemyType = pokemonEnemy[0].type;
                         var moveType = arrMoves[0].moveType;
                         var moveName = arrMoves[0].nameEsp;
-                        var enemyDanageResult = enemyTurn({pokemon,
+                        var enemyName = pokemonEnemy[0].name;
+                        var enemyTurnData = enemyTurn({pokemon,
                           pokemonEnemy,
                           arrEnemyMoves})
-
+                        console.log(enemyTurnData[0])
                         var dmgResult = damageCalc(
                           allyAttack,
                           movePower,
@@ -98,19 +100,19 @@ const ButtonSpace = ({
                         
                         if(turnoL==="ally"){
                           processHealth(dmgResult);
-                          handleClickLog(name, arrMoves[0].nameEsp, dmgResult);
+                          handleClickLog(name, arrMoves[0].nameEsp, dmgResult, enemyName);
+                          console.log('pokemon atacante:' + name)
+                          console.log('pokemon defensor:' + enemyName)  
                           setTurnoL("enemy")
                         }else{
-                          processHealthAlly(enemyDanageResult);
-                          enemyTurn({ pokemon,
-                          pokemonEnemy,
-                          arrEnemyMoves})
-                          handleClickLog(enemyName, arrEnemyMoves[Math.floor(Math.random() * 4)].nameEsp, enemyDanageResult);
+                          processHealthAlly(enemyTurnData[0].damage);    
+                          console.log('pokemon atacante:' + enemyName)
+                          console.log('pokemon defensor:' + enemyTurnData[0].enemy)                      
+                          handleClickLog(enemyName, enemyTurnData[0].move, enemyTurnData[0].damage, enemyTurnData[0].enemy);
                           setTurnoL("ally")
+
                         }
-                        
-                      } else {
-                        console.log("Desactivated");
+
                       }
                     }}
                   >
