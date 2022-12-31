@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/pokemeem/static/css/main.f39a0be5.css",
-    "main.js": "/pokemeem/static/js/main.5772fd08.js",
+    "main.css": "/pokemeem/static/css/main.287e9390.css",
+    "main.js": "/pokemeem/static/js/main.99d61c09.js",
     "index.html": "/pokemeem/index.html",
-    "main.f39a0be5.css.map": "/pokemeem/static/css/main.f39a0be5.css.map",
-    "main.5772fd08.js.map": "/pokemeem/static/js/main.5772fd08.js.map"
+    "main.287e9390.css.map": "/pokemeem/static/css/main.287e9390.css.map",
+    "main.99d61c09.js.map": "/pokemeem/static/js/main.99d61c09.js.map"
   },
   "entrypoints": [
-    "static/css/main.f39a0be5.css",
-    "static/js/main.5772fd08.js"
+    "static/css/main.287e9390.css",
+    "static/js/main.99d61c09.js"
   ]
 }
