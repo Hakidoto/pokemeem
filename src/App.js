@@ -28,6 +28,8 @@ function App() {
   const [enemyName, setEnemyName] = useState("");
   const audioRef = useRef(null);
   const [audio, setAudio] = useState("");
+  const [volume, setVolume] = useState(0);
+
 
   function pauseAudio() {
     audioRef.current.pause();
@@ -212,8 +214,8 @@ function App() {
               </label>
             </div>
             <div className="volumeContainer">
-              <label class="form-label musicVolume text-light">Volumen: {volume}%</label>
-              <input type="range" class="form-range" min="0" max="100" step="1" value={volume} onChange={handleVolumeChange} ></input>
+              <label className="form-label musicVolume text-light">Volumen: {volume}%</label>
+              <input type="range" className="form-range" min="0" max="100" step="1" value={volume} onChange={handleVolumeChange} ></input>
             </div>
           </div>
           <div className="footer-right">
