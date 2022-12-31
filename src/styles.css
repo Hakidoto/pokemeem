@@ -127,7 +127,8 @@ body{
 }
 
 .hpCounter{
-  font-size: 1vw;
+  font-size: 1.3vw;
+  font-family: 'VT323', monospace;
 }
 
 .nombreBarDerrotado{
@@ -314,16 +315,83 @@ body{
   .main{
    display: block;
   }
+
+  .banner{
+    height: 6vh;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+
+  .banner h1 {
+    font-size: 2vh;
+  }
+
+  .boton{
+    font-size: 3vw;
+    width: 17vw;
+    height: 7vh;
+  }
+  .footerP{
+    font-size: 5.5vw;
+  }
+  .logList{
+    font-size: 6.5vw
+  }
+  
+  .lvlBar {
+    font-size: 3vw;
+  }
+
+  .hpCounter{
+    height: 4vw;
+    font-size: 3vw;
+  }
+
+  .mobile-hp-section{
+  width: 100% !important;
+  }
+
+  .ally{
+    width: 60px;
+    height: 60px;
+  }
+  
+  .enemy{
+    min-width: 60px;
+    height: 60px;
+    width: 80px;
+  }
+  
+  .botones{
+    padding-top: 9%;
+  }
+
+  .title2{
+    width: 100% !important; 
+  }
+
+  .boton .botonDes{
+    width: 15vw;
+  }
+
+  .tipoPoke{
+    height: 6vw;
+    font-size: 3.5vw;
+  }
+  
   .playground{
     width: 100%;
     height: 80vh;
   }
   .playgroundFooter{
-    margin-top: 17%;
+    margin-top: 25%;
+    height: 31.5%;
   }
   .contentHpBar{
-    width: 25vw;
-    margin-left: 23%;
+    width: 35vw;
+    margin-left: 15%;
   }
   .contentHpBarContent{
     height: 11vh;
