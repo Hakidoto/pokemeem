@@ -109,7 +109,7 @@ const EnemyContainer = ({
                   >
                     {type}
                   </div>
-                  <div className="col-6 col-md-7 border ">
+                  <div className="col-6 col-md-7 mobile-hp-section ">
                     <div
                       className={
                         HpEnemy === 0
