@@ -102,7 +102,7 @@ const EnemyContainer = ({
                   </div>
                   <div className="porcentageBar mx-3"> HP</div>
                 </div>
-                <div className="row g-0 text-center border ">
+                <div className="row g-0 text-center">
                   <div
                     className="col-sm-6 col-md-5 tipoPoke"
                     style={{ backgroundColor: getBackgroundColor(type) }}
