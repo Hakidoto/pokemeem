@@ -13,7 +13,7 @@ const Log = ({pokemon, log, enemyName, conVida, contadorLog, conVidaAlly}) => {
           <p className='title22'>Historial de acciones realizadas</p>
         </div>
       </div>
-      <LogList contadorLog={contadorLog} conVida={conVida} conVidaAlly={conVidaAlly} enemyName={enemyName} pokemon={pokemon} log={log} />
+      <LogList conVida={conVida} conVidaAlly={conVidaAlly} pokemon={pokemon} log={log} />
     </div>
   )
 }

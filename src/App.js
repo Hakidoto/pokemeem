@@ -150,6 +150,7 @@ function App() {
           </figure>
           <h1 className="text-white title-header">Simulador de batalla Pokemon</h1>
         </div>
+        
         <div>
           <div className="bgrd text-light main">
             <Playground
